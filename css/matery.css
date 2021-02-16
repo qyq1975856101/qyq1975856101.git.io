@@ -371,18 +371,18 @@ header .side-nav .social-link {
 
 .cover-btns {
     position: relative;
-    top: 10vh;
+    top: 39vh;
     text-align: center;
 }
 
 .cover-btns a {
     margin: 10px 15px;
-    padding: 0 35px;
+    padding: 0px 35px 0px 40px;
     height: 45px;
     line-height: 45px;
     font-size: 1rem;
     color: #fff;
-    border: 1px solid #fff;
+    /* border: 1px solid #fff; */
     background-color: transparent;
     border-radius: 30px;
     box-shadow: none;
