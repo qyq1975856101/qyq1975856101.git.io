@@ -6,7 +6,7 @@
   <link href="https://www.wuhouhuacha.com/atom.xml" rel="self"/>
   
   <link href="https://www.wuhouhuacha.com/"/>
-  <updated>2021-02-27T07:33:54.108Z</updated>
+  <updated>2021-02-27T08:10:37.140Z</updated>
   <id>https://www.wuhouhuacha.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://www.wuhouhuacha.com/posts/2.html"/>
     <id>https://www.wuhouhuacha.com/posts/2.html</id>
     <published>2021-02-26T09:19:23.736Z</published>
-    <updated>2021-02-27T07:33:54.108Z</updated>
+    <updated>2021-02-27T08:10:37.140Z</updated>
     
     
       
@@ -33,6 +33,8 @@
       
     
     
+    
+    <category term="notes" scheme="https://www.wuhouhuacha.com/categories/notes/"/>
     
     
     <category term="OS" scheme="https://www.wuhouhuacha.com/tags/OS/"/>
