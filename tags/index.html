@@ -460,19 +460,19 @@
                 </a>
                 
                 
-                <a href="/tags/test/" title="test: 1">
+                <a href="/tags/data-structure/" title="data_structure: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="test" style="background-color: #F5EEF8;">test
+                            data-tagname="data_structure" style="background-color: #F5EEF8;">data_structure
                         <span class="tag-length">1</span>
                     </span>
                 </a>
                 
                 
-                <a href="/tags/data-structure/" title="data_structure: 1">
+                <a href="/tags/test/" title="test: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="data_structure" style="background-color: #D5F5E3;">data_structure
+                            data-tagname="test" style="background-color: #D5F5E3;">test
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -501,7 +501,7 @@
 <script type="text/javascript">
     
 
-    $('#tag-wordcloud').jQCloud([{"text":"OS","weight":1,"link":"/tags/OS/"},{"text":"test","weight":1,"link":"/tags/test/"},{"text":"data_structure","weight":1,"link":"/tags/data-structure/"}], {
+    $('#tag-wordcloud').jQCloud([{"text":"OS","weight":1,"link":"/tags/OS/"},{"text":"data_structure","weight":1,"link":"/tags/data-structure/"},{"text":"test","weight":1,"link":"/tags/test/"}], {
         autoResize: true
     });
 </script>
@@ -873,6 +873,20 @@ $(function () {
     
     
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+<script>
+    if (localStorage.getItem('dark') === '1') {
+    document.body.classList.add('dark');
+    }
+    else if (new Date().getHours() >= 22 || new Date().getHours() < 7) {
+    document.body.classList.add('dark');
+    } 
+    else if (matchMedia('(prefers-color-scheme: dark)').matches) {
+    document.body.classList.add('dark');
+    }
+</script>
+<a onclick="switchNightMode()" id="sma">
+    <i class="fa fa-moon-o" id="nightMode" aria-hidden="true"></i>
+</a>
 <!--动态线条背景-->
 <!-- <script type="text/javascript"
 color="122 103 238" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js">

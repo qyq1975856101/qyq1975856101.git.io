@@ -166,7 +166,23 @@ $(function () {
                 $('.m-nav-item.m-nav-show').removeClass('m-nav-show');
             }
     });
+    
 
     // 初始化加载 tooltipped.
     $('.tooltipped').tooltip();
 });
+// 深色模式设置
+function switchNightMode() {
+    var body = document.body;
+    if(body.classList.contains('dark')){
+    document.body.classList.remove('dark');
+    localStorage.setItem('dark','0');
+    $('#nightMode').removeClass("fa-lightbulb-on").addClass("fa-moon");
+    return;
+    } else {
+    document.body.classList.add('dark');
+    localStorage.setItem('dark','1');
+    $('#nightMode').removeClass("fa-moon").addClass("fa-lightbulb-on");
+    return;
+    }
+}
