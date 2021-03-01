@@ -177,8 +177,8 @@ function switchNightMode() {
         function () {
             var DarkMode = document.cookie.replace(/(?:(?:^|.*;\s*)DarkMode\s*\=\s*([^;]*).*$)|^.*$/, "$1") ||
                 '0';
-            (DarkMode != '0') ? ($("html").addClass("DarkMode"), document.cookie = "DarkMode=0;path=/", console.log('夜间模式开启'), $('#modeicon').attr("xlink:href", "#icon-sun"))
-             : ($("html").removeClass("DarkMode"), document.cookie = "DarkMode=1;path=/", console.log('夜间模式关闭'), $('#modeicon').attr("xlink:href", "#icon-_moon")), 
+            (DarkMode == '0') ? ($("html").addClass("DarkMode"), document.cookie = "DarkMode=1;path=/", console.log('夜间模式开启'), $('#modeicon').attr("xlink:href", "#icon-sun"))
+             : ($("html").removeClass("DarkMode"), document.cookie = "DarkMode=0;path=/", console.log('夜间模式关闭'), $('#modeicon').attr("xlink:href", "#icon-_moon")), 
              setTimeout(function () {
                 $(".Cuteen_DarkSky").fadeOut(1e3, function () {
                     $(this).remove()
