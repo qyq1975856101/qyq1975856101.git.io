@@ -2171,12 +2171,16 @@ footer .copy-right {
 }
 
 #sma .fa-moon-o {
+    color: white;
+    font-weight: 100;
     position: absolute;
     right: 13px;
     bottom: 13px;
     font-size: 1.48rem!important;
 }
 #sma .fa-lightbulb-o  {
+    color: white;
+    font-weight: 100;
     position: absolute;
     right: 13px;
     bottom: 13px;
@@ -2184,10 +2188,10 @@ footer .copy-right {
 }
 
 .fa-moon-o:before {
-    content: "\f186";
+	content: "\f186";
 }
 .fa-lightbulb-o:before {
-    content: "\f186";
+	content: "\f0eb";
 }
 
     /* 深色模式设置 */
