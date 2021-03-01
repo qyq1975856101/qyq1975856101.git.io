@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>Markdown基本要素</title>
+      <link href="posts/3.html"/>
+      <url>posts/3.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="什么是-Markdown"><a href="#什么是-Markdown" class="headerlink" title="什么是 Markdown?"></a>什么是 Markdown?</h2><p><code>Markdown</code> 是一种文本格式。你可以用它来控制文档的显示。使用 markdown，你可以创建粗体的文字，斜体的文字，添加图片，并且创建列表 等等。基本上来讲，Markdown 就是普通的文字加上 <code>#</code> 或者 <code>*</code> 等符号。</p><h3 id="语法说明"><a href="#语法说明" class="headerlink" title="语法说明"></a>语法说明</h3><h4 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h4><blockquote><p><code>#</code> 这是 <code>&lt;h1&gt;</code>一级标题</p><p><code>##</code> 这是 ’</p><h2>‘ 二级标题<p></p></h2><h3 id="这是-‘’-三级标题"><a href="#这是-‘’-三级标题" class="headerlink" title="这是 ‘’ 三级标题"></a>这是 ‘</h3><h3>’ 三级标题</h3><p>‘####‘ 这是 ’</p><h4>‘ 四级标题<p></p><p>‘#####’ 这是 ‘</p></h4><h5>’ 五级标题<p></p><p>‘######‘ 这是 ’</p></h5><h6>‘ 六级标题<p></p></h6></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> notes </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> MD </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>1.1.1操作系统的基本概念</title>
       <link href="posts/2.html"/>
       <url>posts/2.html</url>

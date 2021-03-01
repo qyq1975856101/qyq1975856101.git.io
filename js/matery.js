@@ -173,16 +173,67 @@ $(function () {
 });
 // 深色模式设置
 function switchNightMode() {
+    $('<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"></div></div>').appendTo($("body")), setTimeout(
+        function () {
+            var DarkMode = document.cookie.replace(/(?:(?:^|.*;\s*)DarkMode\s*\=\s*([^;]*).*$)|^.*$/, "$1") ||
+                '0';
+            (DarkMode != '0') ? ($("html").addClass("DarkMode"), document.cookie = "DarkMode=0;path=/", console.log('夜间模式开启'), $('#modeicon').attr("xlink:href", "#icon-sun"))
+             : ($("html").removeClass("DarkMode"), document.cookie = "DarkMode=1;path=/", console.log('夜间模式关闭'), $('#modeicon').attr("xlink:href", "#icon-_moon")), 
+             setTimeout(function () {
+                $(".Cuteen_DarkSky").fadeOut(1e3, function () {
+                    $(this).remove()
+                })
+            }, 2e3)
+        }), 50
     var body = document.body;
     if(body.classList.contains('dark')){
     document.body.classList.remove('dark');
     localStorage.setItem('dark','0');
-    $('#nightMode').removeClass("fa-lightbulb-on").addClass("fa-moon");
+    $('#nightMode').removeClass("fa-lightbulb-o").addClass("fa-moon-o");
     return;
     } else {
     document.body.classList.add('dark');
     localStorage.setItem('dark','1');
-    $('#nightMode').removeClass("fa-moon").addClass("fa-lightbulb-on");
+    $('#nightMode').removeClass("fa-moon-o").addClass("fa-lightbulb-o");
     return;
     }
 }
+
+function checkNightMode() {
+    if ($("html").hasClass("n-f")) {
+        $("html").removeClass("day");
+        $("html").addClass("DarkMode");
+        $('#modeicon').attr("xlink:href", "#icon-sun")
+        return;
+    }
+    if ($("html").hasClass("d-f")) {
+        $("html").removeClass("DarkMode");
+        $("html").addClass("day");
+        $('#modeicon').attr("xlink:href", "#icon-_moon")
+
+        return;
+    }
+    if (document.cookie.replace(/(?:(?:^|.*;\s*)DarkMode\s*\=\s*([^;]*).*$)|^.*$/, "$1") === '') {
+        if (new Date().getHours() >= 23 || new Date().getHours() < 7) {
+            $("html").addClass("DarkMode");
+            document.cookie = "DarkMode=1;path=/";
+            console.log('夜间模式开启');
+            $('#modeicon').attr("xlink:href", "#icon-sun")
+        } else {
+            $("html").removeClass("DarkMode");
+            document.cookie = "DarkMode=0;path=/";
+            console.log('夜间模式关闭');
+            $('#modeicon').attr("xlink:href", "#icon-_moon")
+        }
+    } else {
+        var DarkMode = document.cookie.replace(/(?:(?:^|.*;\s*)DarkMode\s*\=\s*([^;]*).*$)|^.*$/, "$1") || '0';
+        if (DarkMode == '0') {
+            $("html").removeClass("DarkMode");
+            $('#modeicon').attr("xlink:href", "#icon-_moon")
+        } else if (DarkMode == '1') {
+            $("html").addClass("DarkMode");
+            $('#modeicon').attr("xlink:href", "#icon-sun")
+        }
+    }
+}
+checkNightMode();
