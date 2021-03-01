@@ -2141,6 +2141,19 @@ footer .copy-right {
     margin: 0;
 }
 
+/* 天气插件 */
+.weather {
+    position: absolute; 
+    top: 70px; 
+    right: 10px;
+    font-size: 1.4em;
+    cursor: pointer;
+    padding: 10px;
+    box-shadow: rgb(0 0 0 / 38%) 0px 2px 4px;
+    background-color: transparent;
+    border-radius: 18px;
+}
+
 /* 深色模式按钮设置 */
 #sma {
     background: #000;
