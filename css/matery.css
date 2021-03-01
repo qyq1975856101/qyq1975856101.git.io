@@ -2184,7 +2184,7 @@ footer .copy-right {
     position: absolute;
     right: 13px;
     bottom: 13px;
-    font-size: 1.5rem!important;
+    font-size: 1.48rem!important;
 }
 
 .fa-moon-o:before {
@@ -2192,6 +2192,7 @@ footer .copy-right {
 }
 .fa-lightbulb-o:before {
 	content: "\f0eb";
+    margin-right: 3px;
 }
 
     /* 深色模式设置 */

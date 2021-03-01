@@ -213,7 +213,7 @@ function checkNightMode() {
 
         return;
     }
-    if (document.cookie.replace(/(?:(?:^|.*;\s*)DarkMode\s*\=\s*([^;]*).*$)|^.*$/, "$1") === '') {
+    if (document.cookie.replace(/(?:(?:^|.*;\s*)DarkMode\s*\=\s*([^;]*).*$)|^.*$/, "$1") === '0') {
         if (new Date().getHours() >= 23 || new Date().getHours() < 7) {
             $("html").addClass("DarkMode");
             document.cookie = "DarkMode=1;path=/";
