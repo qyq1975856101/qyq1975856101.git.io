@@ -214,7 +214,7 @@ function checkNightMode() {
         return;
     }
     if (document.cookie.replace(/(?:(?:^|.*;\s*)DarkMode\s*\=\s*([^;]*).*$)|^.*$/, "$1") === '0') {
-        if (new Date().getHours() >= 23 || new Date().getHours() < 7) {
+        if (new Date().getHours() >= 22 || new Date().getHours() < 10 && localStorage.getItem('dark') === null) {
             $("html").addClass("DarkMode");
             document.cookie = "DarkMode=1;path=/";
             console.log('夜间模式开启');
@@ -225,13 +225,16 @@ function checkNightMode() {
             console.log('夜间模式关闭');
             $('#modeicon').attr("xlink:href", "#icon-_moon")
         }
-    } else {
-        var DarkMode = document.cookie.replace(/(?:(?:^|.*;\s*)DarkMode\s*\=\s*([^;]*).*$)|^.*$/, "$1") || '0';
+    } 
+    else {
+        var DarkMode = document.cookie.replace(/(?:(?:^|.*;\s*)DarkMode\s*\=\s*([^;]*).*$)|^.*$/, "$1") || localStorage.getItem('dark');
         if (DarkMode == '0') {
             $("html").removeClass("DarkMode");
+            console.log('夜间模式关闭');
             $('#modeicon').attr("xlink:href", "#icon-_moon")
         } else if (DarkMode == '1') {
             $("html").addClass("DarkMode");
+            console.log('夜间模式开启');
             $('#modeicon').attr("xlink:href", "#icon-sun")
         }
     }
