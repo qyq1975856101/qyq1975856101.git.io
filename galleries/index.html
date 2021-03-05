@@ -873,7 +873,7 @@ $(function () {
     $('#modeicon').attr("xlink:href", "#icon-sun");
     console.log('夜间模式开启dark');
     }
-    else if (new Date().getHours() >= 22 || new Date().getHours() < 10 && localStorage.getItem('dark') === null) {
+    else if (new Date().getHours() >= 22 || new Date().getHours() < 7 && localStorage.getItem('dark') === null) {
     localStorage.setItem('dark','1');
     document.body.classList.add('dark');
     document.getElementById("nightMode").className = "fa fa-lightbulb-o";

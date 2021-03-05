@@ -214,7 +214,7 @@ function checkNightMode() {
         return;
     }
     if (document.cookie.replace(/(?:(?:^|.*;\s*)DarkMode\s*\=\s*([^;]*).*$)|^.*$/, "$1") === '0') {
-        if (new Date().getHours() >= 22 || new Date().getHours() < 10 && localStorage.getItem('dark') === null) {
+        if (new Date().getHours() >= 22 || new Date().getHours() < 7 && localStorage.getItem('dark') === null) {
             $("html").addClass("DarkMode");
             document.cookie = "DarkMode=1;path=/";
             console.log('夜间模式开启');
