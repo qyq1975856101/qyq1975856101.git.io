@@ -6,7 +6,7 @@
   <link href="https://www.wuhouhuacha.com/atom.xml" rel="self"/>
   
   <link href="https://www.wuhouhuacha.com/"/>
-  <updated>2021-03-10T03:59:02.138Z</updated>
+  <updated>2021-03-10T04:01:13.466Z</updated>
   <id>https://www.wuhouhuacha.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://www.wuhouhuacha.com/posts/52273.html"/>
     <id>https://www.wuhouhuacha.com/posts/52273.html</id>
     <published>2021-03-10T03:43:01.000Z</published>
-    <updated>2021-03-10T03:59:02.138Z</updated>
+    <updated>2021-03-10T04:01:13.466Z</updated>
     
     
       
@@ -33,6 +33,8 @@
       
     
     
+    
+    <category term="notes" scheme="https://www.wuhouhuacha.com/categories/notes/"/>
     
     
     <category term="Schedule" scheme="https://www.wuhouhuacha.com/tags/Schedule/"/>
