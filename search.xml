@@ -4,6 +4,56 @@
   
     
     <entry>
+      <title></title>
+      <link href="posts/cpp-passing-pointers-to-functions.html"/>
+      <url>posts/cpp-passing-pointers-to-functions.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="C-传递指针给函数"><a href="#C-传递指针给函数" class="headerlink" title="C++ 传递指针给函数"></a>C++ 传递指针给函数</h1><p>C++ 允许您传递指针给函数，只需要简单地声明函数参数(形参)为指针类型即可。</p><h2 id="结构体定义"><a href="#结构体定义" class="headerlink" title="结构体定义"></a>结构体定义</h2><p>typedef：给变量取一个易记且意义明确的新名字；简化一些比较复杂的类型声明。</p><p>typedef <u>①</u> <u>②</u>:给①起个叫②的别名；</p><pre class=" language-c++"><code class="language-c++">struct [结构体名(临时名字,可省略)]{    类型标识符    成员名；     ...     ...     ...}变量名/序列(新名字);</code></pre><pre class=" language-c++"><code class="language-c++">typedef struct node{    int data;    struct node *lchild;    struct node *rchild;}BTNode,* btnode;BTNode BT;    //①,BT是某个节点的名字BTNode *BT;    //②,BT是指针型变量btnode BT;    //③,BT是指针型变量BT = (BTNode *)malloc(sizeof(BTNode));    //分配空间</code></pre><p>其中②③等价；即(*BT)-&gt;data↔ BT-&gt;data ;</p><h2 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h2><pre class=" language-c++"><code class="language-c++">#include<iostream>#include<cstdlib>#define maxsize 1024        //定义最大长度#define datatype int        //定义默认数据类型 using namespace std;typedef struct SquenList{        datatype elem[maxsize];    //用静态的"数组"存放数据元素        int length;                //顺序表的当前长度}SquenList, * sequenlist;    //顺序表的类型定义bool ChangeElem(sequenlist L,int i,datatype Item);    //L是SquenList类型的指针int main(){    datatype temp;    sequenlist s = (SquenList *)malloc(sizeof(SquenList));//声明一个指向顺序表的指针，并为顺序表分配空间        s->length = 6;    for(int i = 0;i<s->length;i++){            s->elem[i] = i;    //{[0],[1],[2],[3],[4],[5]}    }    ChangeElem(s,4,1);    //{[0],[1],[2],[3],[1],[5]};指针传递给函数时，形参传入的是地址;s表示指向顺序表的地址}bool ChangeElem(sequenlist L,int i,datatype Item){    if(i<0||i>L->length-1){        cout<<"err"<<endl;        return false;    }else {        L->elem[i] = Item;       return true;     }}</code></pre><p>形参定义为指针类型时，实参传递一定是地址。</p><pre class=" language-c++"><code class="language-c++">void func1(int *a);int main (){   int b;   func1( &b );   return 0;}</code></pre><pre class=" language-c++"><code class="language-c++">void func1(int *a);int main (){   int b[5]={1,2,3,4,5};   func1(b);   return 0;}</code></pre><p>数组函数名为首地址。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> notes </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 学习笔记 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>C++ 中指针和引用的区别</title>
+      <link href="posts/cpp-difference-between-pointers-and-references.html"/>
+      <url>posts/cpp-difference-between-pointers-and-references.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="C-引用与指针的比较"><a href="#C-引用与指针的比较" class="headerlink" title="C++ 引用与指针的比较"></a>C++ 引用与指针的比较</h2><p>引用是 C++ 中的概念，初学者容易把引用和指针混淆一起。</p><p>引用是变量的别名，不会产生副本，和原变量是同一个东西，因此对引用变量的操作就是对原变量的操作。</p><p>一下程序中，n 是m的一个引用（reference），m 是被引用物（referent）。</p><pre class=" language-c++"><code class="language-c++">int m; int &n = m; </code></pre><p>n 相当于 m 的别名（绰号），对 n 的任何操作就是对m的操作。</p><p>所以 n 既不是m的拷贝，也不是指向 m 的指针，其实n就是 m 它自己。</p><p>引用的规则：</p><ul><li>（1）引用被创建的同时必须被初始化（指针则可以在任何时候被初始化）。</li><li>（2）不能有 NULL 引用，引用必须与合法的存储单元关联（指针则可以是 NULL）。</li><li>（3）一旦引用被初始化，就不能改变引用的关系（指针则可以随时改变所指的对象）。</li></ul><p>以下示例程序中，k 被初始化为i的引用。</p><p>语句 k = j 并不能将 k 修改成为j的引用，只是把k的值改变成为 6。</p><p>由于 k 是 i 的引用，所以i的值也变成了 6。</p><pre class=" language-c++"><code class="language-c++">int i = 5; int j = 6; int &k = i; k = j; // k 和 i 的值都变成了 6;</code></pre><p>引用的主要功能是传递函数的参数和返回值。</p><p>C++ 语言中，函数的参数和返回值的传递方式有三种：值传递、指针传递和引用传递。</p><p>以下是”值传递”的示例程序。</p><p>由于 Func1 函数体内的 x 是外部变量 n 的一份拷贝,函数体内的 x有新的存储空间,改变 x 的值不会影响 n,函数执行完毕后x会被销毁， 所以 n 的值仍然是 0。</p><pre class=" language-c++"><code class="language-c++">void Func1(int x) {     x = x + 10; } ... int n = 0; Func1(n); cout << "n = " << n << endl; // n = 0 </code></pre><p>以下是”指针传递”的示例程序。</p><p>将指针作为函数参数，可以看作是将指针所指变量的<strong>地址</strong>传入函数，形参指针指向该地址，<strong>即两个指针指向同一地址</strong>；如果在函数中对这个地址中的元素进行改变，传入指针所指变量的数据就会确实的发生改变。</p><p>由于 Func2 函数体内的 x 是指向外部变量 n 的指针，* x表示取x中存储的地址的里面的值，即指针所指变量的值；改变该指针的内容将导致 n 的值改变，所以 n 的值成为 10。</p><pre class=" language-c++"><code class="language-c++">void Func2(int *x) {     (* x) = (* x) + 10; } ...int n = 0; Func2(&n); cout << "n = " << n << endl; // n = 10 </code></pre><p>但是如果在函数中改变的是指针指向的地址，则对传入的指针变量不会产生影响。</p><pre class=" language-c++"><code class="language-c++">int a = 10;        //全局变量void Func3(int *x) {     x = &a; } ...int n = 0;int *m = &nFunc3(m); cout << "n = " << *m << endl; // n = 0 </code></pre><p>改变指针变量指向的地址，相当于使指针x从指向实参n变成指向全局变量a，而形参值的改变不会影响实参的值，所以传入指针所指地址不会发生改变。</p><p>如果想要改变指针指向的地址，就需要在函数中传递指针的指针。</p><pre class=" language-c++"><code class="language-c++">int a = 10;        //全局变量void Func3(int **x) {     *x = &a; } ...int n = 0;int *m = &nFunc3(&m); cout << "n = " << *m << endl; // n = 10 </code></pre><p>以下是”引用传递”的示例程序。</p><p>由于 Func3 函数体内的 x 是外部变量 n 的引用，x 和 n 是同一个东西，<strong>即一个地址两个名字</strong>；改变 x 等于改变 n，所以 n 的值成为 10。</p><pre class=" language-c++"><code class="language-c++">void Func3(int &x) {     x = x + 10; } ... int n = 0; Func3(n); cout << "n = " << n << endl; // n = 10</code></pre><p>有了引用之后，改变指针指向的地址就可以通过指针的引用来实现。</p><pre class=" language-c++"><code class="language-c++">int a = 10;        //全局变量void Func3(int *&x) {     *x = &a; } ...int n = 0;int *m = &nFunc3(m); cout << "n = " << *m << endl; // n = 10 </code></pre><p>对比上述三个示例程序，会发现”引用传递”的性质象”指针传递”，而书写方式象”值传递”。</p><p>实际上”引用”可以做的任何事情”指针”也都能够做，为什么还要”引用”这东西？</p><p>答案是”用适当的工具做恰如其分的工作”。</p><p>指针能够毫无约束地操作内存中的任何东西，尽管指针功能强大，但是非常危险。</p><p>如果的确只需要借用一下某个对象的”别名”，那么就用”引用”，而不要用”指针”，以免发生意外。</p><p><strong>参考</strong></p><p>- <a href="https://www.runoob.com/w3cnote/cpp-difference-between-pointers-and-references.html">菜鸟教程</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> notes </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 学习笔记 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>SequenceList</title>
       <link href="posts/sequencelist.html"/>
       <url>posts/sequencelist.html</url>

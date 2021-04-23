@@ -6,7 +6,7 @@
   <link href="https://www.wuhouhuacha.com/atom.xml" rel="self"/>
   
   <link href="https://www.wuhouhuacha.com/"/>
-  <updated>2021-04-23T14:34:53.505Z</updated>
+  <updated>2021-04-23T16:11:57.644Z</updated>
   <id>https://www.wuhouhuacha.com/</id>
   
   <author>
@@ -17,11 +17,61 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title></title>
+    <link href="https://www.wuhouhuacha.com/posts/cpp-passing-pointers-to-functions.html"/>
+    <id>https://www.wuhouhuacha.com/posts/cpp-passing-pointers-to-functions.html</id>
+    <published>2021-04-23T15:17:01.000Z</published>
+    <updated>2021-04-23T16:11:57.644Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;C-传递指针给函数&quot;&gt;&lt;a href=&quot;#C-传递指针给函数&quot; class=&quot;headerlink&quot; title=&quot;C++ 传递指针给函数&quot;&gt;&lt;/a&gt;C++ 传递指针给函数&lt;/h1&gt;&lt;p&gt;C++</summary>
+        
+      
+    
+    
+    
+    <category term="notes" scheme="https://www.wuhouhuacha.com/categories/notes/"/>
+    
+    
+    <category term="学习笔记" scheme="https://www.wuhouhuacha.com/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>C++ 中指针和引用的区别</title>
+    <link href="https://www.wuhouhuacha.com/posts/cpp-difference-between-pointers-and-references.html"/>
+    <id>https://www.wuhouhuacha.com/posts/cpp-difference-between-pointers-and-references.html</id>
+    <published>2021-04-23T14:45:47.000Z</published>
+    <updated>2021-04-23T16:45:05.288Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;C-引用与指针的比较&quot;&gt;&lt;a href=&quot;#C-引用与指针的比较&quot; class=&quot;headerlink&quot; title=&quot;C++ 引用与指针的比较&quot;&gt;&lt;/a&gt;C++ 引用与指针的比较&lt;/h2&gt;&lt;p&gt;引用是 C++</summary>
+        
+      
+    
+    
+    
+    <category term="notes" scheme="https://www.wuhouhuacha.com/categories/notes/"/>
+    
+    
+    <category term="学习笔记" scheme="https://www.wuhouhuacha.com/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
     <title>SequenceList</title>
     <link href="https://www.wuhouhuacha.com/posts/sequencelist.html"/>
     <id>https://www.wuhouhuacha.com/posts/sequencelist.html</id>
     <published>2021-04-23T14:24:14.000Z</published>
-    <updated>2021-04-23T14:34:53.505Z</updated>
+    <updated>2021-04-23T14:44:46.127Z</updated>
     
     
       

@@ -1,3 +1,5 @@
+https://www.wuhouhuacha.com/posts/cpp-passing-pointers-to-functions.html
+https://www.wuhouhuacha.com/posts/cpp-difference-between-pointers-and-references.html
 https://www.wuhouhuacha.com/posts/sequencelist.html
 https://www.wuhouhuacha.com/posts/52273.html
 https://www.wuhouhuacha.com/posts/3.html
