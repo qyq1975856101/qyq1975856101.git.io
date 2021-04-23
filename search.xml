@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>SequenceList</title>
+      <link href="posts/sequencelist.html"/>
+      <url>posts/sequencelist.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="顺序表的实现"><a href="#顺序表的实现" class="headerlink" title="顺序表的实现"></a>顺序表的实现</h1><pre class=" language-c++"><code class="language-c++">#include<iostream>#include<cstdlib>#define maxsize 1024        //定义最大长度#define datatype int        //定义默认数据类型 using namespace std;typedef struct SquenList{        datatype elem[maxsize];    //用静态的"数组"存放数据元素        int length;                //顺序表的当前长度}SquenList, * sequenlist;    //顺序表的类型定义void InitList(sequenlist L);                            //初始化表void DestroyList(sequenlist L);                            //销毁int ListLength(sequenlist L);                            //求表长void Listlnsert(sequenlist L,int i,datatype Item);        //在表L中的第i个位置后插入指定元素ebool ListDelete(sequenlist L,int i);                    //删除表L中第i个位置后的元素 bool GetNext(sequenlist L,datatype Item,datatype &p);    //在表L中查找具有给定关键字值的元素的下一位,并赋值给形参。datatype GetNode(sequenlist L,int i);                    //在表L中查找下标为i的元素,并返回元素的值。 int LocateElem(sequenlist L,datatype Item);                //在表L中查找具有给定关键字值的元素,成功返回下标。 bool GetPrior(sequenlist L,datatype Item,datatype &p);    //在表L中查找具有给定关键字值的元素的前一位,并赋值给形参。void PrintList(sequenlist L);                            //按前后顺序输出线性表L的所有元素值 void Empty(sequenlist L);                                //若L为空表，则返回true，否则返回falseint main(){    datatype temp;    sequenlist s = (SquenList *)malloc(sizeof(SquenList));//声明一个指向顺序表的指针，并为顺序表分配空间        InitList(s);    cin>>s->length;    for(int i = 0;i<s->length;i++){            cin>>s->elem[i];    }    Listlnsert(s,2,0);    PrintList(s);    cout<<"ListLength(s):"<<ListLength(s)<<endl;    cout<<"GetNode(s,2):"<<GetNode(s,2)<<endl;    cout<<"GetNext(s,2,&temp):"<<GetNext(s,2,temp)<<endl;    cout<<"temp:"<<temp<<endl;    cout<<"LocateElem(s,2):"<<LocateElem(s,2)<<endl;    cout<<"GetPrior(s,2,&temp):"<<GetPrior(s,2,temp)<<endl;    cout<<"temp:"<<temp<<endl;    cout<<"ListDelete(s,2):"<<ListDelete(s,2)<<endl;    PrintList(s);        cout<<"ListLength(s):"<<ListLength(s)<<endl;}void InitList(sequenlist L){        L->length = 0;}void DestroyList(sequenlist L){    L->length = 0;}int ListLength(sequenlist L){    return L->length;}void Listlnsert(sequenlist L,int i,datatype Item){    if(i<0||i>L->length)        cout<<"err"<<endl;    else{        L->length++;        for(int j = L->length-1;j > i;j--){            L->elem[j] = L->elem[j-1];        }        L->elem[i] = Item;    }}bool ListDelete(sequenlist L,int i){    if(i<0||i>L->length-1)        return false;    else{        for(;i<L->length-1;i++)            L->elem[i] = L->elem[i+1];            L->length --;            return true;    }}bool GetNext(sequenlist L,datatype Item,datatype &p){    for(int i = 0 ; i < L->length-1; i++){        if(L->elem[i] == Item&&i+1<L->length){            p = L->elem[i+1];            cout<<p<<endl;            return true;        }    }    return false;}datatype GetNode(sequenlist L,int i){    if(i<0||i>L->length-1){        cout<<"err"<<endl;        return false;    }else return L->elem[i];}int LocateElem(sequenlist L,datatype Item){    for(int i = 0 ; i < L->length-1; i++){            if(L->elem[i] == Item){        return i;        }    else return 0;    }}bool GetPrior(sequenlist L,datatype Item,datatype &p){    for(int i = 0 ; i < L->length-1; i++){        if(L->elem[i] == Item&&i-1>=0){            p = L->elem[i-1];            cout<<p<<endl;            return true;        }    }    return false;}void PrintList(sequenlist L){    for(int i = 0;i<L->length;i++){        cout<<L->elem[i]<<" ";    }    cout<<endl;}</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> notes </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> data_structure </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Target</title>
       <link href="posts/52273.html"/>
       <url>posts/52273.html</url>
