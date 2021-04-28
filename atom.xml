@@ -6,7 +6,7 @@
   <link href="https://www.wuhouhuacha.com/atom.xml" rel="self"/>
   
   <link href="https://www.wuhouhuacha.com/"/>
-  <updated>2021-04-23T16:11:57.644Z</updated>
+  <updated>2021-04-27T14:16:31.769Z</updated>
   <id>https://www.wuhouhuacha.com/</id>
   
   <author>
@@ -17,11 +17,61 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title></title>
+    <title>MoreLinkList</title>
+    <link href="https://www.wuhouhuacha.com/posts/morelinklist.html"/>
+    <id>https://www.wuhouhuacha.com/posts/morelinklist.html</id>
+    <published>2021-04-26T14:53:15.000Z</published>
+    <updated>2021-04-27T14:16:31.769Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;单链表结点描述&quot;&gt;&lt;a href=&quot;#单链表结点描述&quot; class=&quot;headerlink&quot; title=&quot;单链表结点描述&quot;&gt;&lt;/a&gt;单链表结点描述&lt;/h2&gt;&lt;pre class=&quot; language-c++&quot;&gt;&lt;code</summary>
+        
+      
+    
+    
+    
+    <category term="notes" scheme="https://www.wuhouhuacha.com/categories/notes/"/>
+    
+    
+    <category term="data_structure" scheme="https://www.wuhouhuacha.com/tags/data-structure/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>LinkList</title>
+    <link href="https://www.wuhouhuacha.com/posts/linklist.html"/>
+    <id>https://www.wuhouhuacha.com/posts/linklist.html</id>
+    <published>2021-04-24T14:38:03.000Z</published>
+    <updated>2021-04-26T14:50:53.729Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;链表的定义&quot;&gt;&lt;a href=&quot;#链表的定义&quot; class=&quot;headerlink&quot; title=&quot;链表的定义&quot;&gt;&lt;/a&gt;链表的定义&lt;/h1&gt;&lt;h2 id=&quot;单链表结点描述&quot;&gt;&lt;a href=&quot;#单链表结点描述&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="notes" scheme="https://www.wuhouhuacha.com/categories/notes/"/>
+    
+    
+    <category term="data_structure" scheme="https://www.wuhouhuacha.com/tags/data-structure/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>c++ 传递指针给函数</title>
     <link href="https://www.wuhouhuacha.com/posts/cpp-passing-pointers-to-functions.html"/>
     <id>https://www.wuhouhuacha.com/posts/cpp-passing-pointers-to-functions.html</id>
     <published>2021-04-23T15:17:01.000Z</published>
-    <updated>2021-04-23T16:11:57.644Z</updated>
+    <updated>2021-04-27T11:25:11.407Z</updated>
     
     
       
@@ -46,7 +96,7 @@
     <link href="https://www.wuhouhuacha.com/posts/cpp-difference-between-pointers-and-references.html"/>
     <id>https://www.wuhouhuacha.com/posts/cpp-difference-between-pointers-and-references.html</id>
     <published>2021-04-23T14:45:47.000Z</published>
-    <updated>2021-04-23T16:45:05.288Z</updated>
+    <updated>2021-04-25T12:38:22.961Z</updated>
     
     
       
@@ -71,14 +121,14 @@
     <link href="https://www.wuhouhuacha.com/posts/sequencelist.html"/>
     <id>https://www.wuhouhuacha.com/posts/sequencelist.html</id>
     <published>2021-04-23T14:24:14.000Z</published>
-    <updated>2021-04-23T14:44:46.127Z</updated>
+    <updated>2021-04-27T13:32:38.522Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h1 id=&quot;顺序表的实现&quot;&gt;&lt;a href=&quot;#顺序表的实现&quot; class=&quot;headerlink&quot; title=&quot;顺序表的实现&quot;&gt;&lt;/a&gt;顺序表的实现&lt;/h1&gt;&lt;pre class=&quot; language-c++&quot;&gt;&lt;code</summary>
+    <summary type="html">&lt;h1 id=&quot;顺序表的定义&quot;&gt;&lt;a href=&quot;#顺序表的定义&quot; class=&quot;headerlink&quot; title=&quot;顺序表的定义&quot;&gt;&lt;/a&gt;顺序表的定义&lt;/h1&gt;&lt;h2 id=&quot;静态分配存储&quot;&gt;&lt;a href=&quot;#静态分配存储&quot; class=&quot;headerlink&quot;</summary>
         
       
     
@@ -167,26 +217,25 @@
   </entry>
   
   <entry>
-    <title>data_structure</title>
+    <title>Markdown</title>
     <link href="https://www.wuhouhuacha.com/posts/1.html"/>
     <id>https://www.wuhouhuacha.com/posts/1.html</id>
     <published>2021-02-16T07:34:47.973Z</published>
-    <updated>2021-02-16T07:50:07.068Z</updated>
+    <updated>2021-04-27T11:44:23.529Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h1 id=&quot;data-structure&quot;&gt;&lt;a href=&quot;#data-structure&quot; class=&quot;headerlink&quot; title=&quot;data_structure&quot;&gt;&lt;/a&gt;data_structure&lt;/h1&gt;&lt;p&gt;learning……&lt;/p&gt;
-&lt;h1</summary>
+    <summary type="html">&lt;h1 id=&quot;Markdown&quot;&gt;&lt;a href=&quot;#Markdown&quot; class=&quot;headerlink&quot; title=&quot;Markdown&quot;&gt;&lt;/a&gt;Markdown&lt;/h1&gt;&lt;h1 id=&quot;我展示的是一级标题&quot;&gt;&lt;a href=&quot;#我展示的是一级标题&quot;</summary>
         
       
     
     
     
     
-    <category term="data_structure" scheme="https://www.wuhouhuacha.com/tags/data-structure/"/>
+    <category term="md" scheme="https://www.wuhouhuacha.com/tags/md/"/>
     
   </entry>
   

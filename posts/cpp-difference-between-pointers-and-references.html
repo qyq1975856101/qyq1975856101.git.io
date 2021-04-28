@@ -617,14 +617,14 @@ WIDGET = {
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-04-24
+                    2021-04-25
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    477
+                    490
                 </div>
                 
 
@@ -647,7 +647,7 @@ WIDGET = {
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h2 id="C-引用与指针的比较"><a href="#C-引用与指针的比较" class="headerlink" title="C++ 引用与指针的比较"></a>C++ 引用与指针的比较</h2><p>引用是 C++ 中的概念，初学者容易把引用和指针混淆一起。</p>
-<p>引用是变量的别名，不会产生副本，和原变量是同一个东西，因此对引用变量的操作就是对原变量的操作。</p>
+<p>引用是变量的别名，不会产生副本，和原变量是同一个东西，因此对引用变量的操作就是对原变量的操作。在底层，<strong>引用变量</strong>由<u>指针按照指针常量的方式实现</u>!</p>
 <p>一下程序中，n 是m的一个引用（reference），m 是被引用物（referent）。</p>
 <pre class=" language-c++"><code class="language-c++">int m; 
 int &n = m; 
@@ -670,8 +670,7 @@ k = j; // k 和 i 的值都变成了 6;
 </code></pre>
 <p>引用的主要功能是传递函数的参数和返回值。</p>
 <p>C++ 语言中，函数的参数和返回值的传递方式有三种：值传递、指针传递和引用传递。</p>
-<p>以下是”值传递”的示例程序。</p>
-<p>由于 Func1 函数体内的 x 是外部变量 n 的一份拷贝,函数体内的 x有新的存储空间,改变 x 的值不会影响 n,函数执行完毕后x会被销毁， 所以 n 的值仍然是 0。</p>
+<h2 id="值传递"><a href="#值传递" class="headerlink" title="值传递"></a>值传递</h2><p>由于 Func1 函数体内的 x 是外部变量 n 的一份拷贝,函数体内的 x有新的存储空间,改变 x 的值不会影响 n,函数执行完毕后x会被销毁， 所以 n 的值仍然是 0。</p>
 <pre class=" language-c++"><code class="language-c++">void Func1(int x) 
 { 
     x = x + 10; 
@@ -681,8 +680,7 @@ int n = 0;
 Func1(n); 
 cout << "n = " << n << endl; // n = 0 
 </code></pre>
-<p>以下是”指针传递”的示例程序。</p>
-<p>将指针作为函数参数，可以看作是将指针所指变量的<strong>地址</strong>传入函数，形参指针指向该地址，<strong>即两个指针指向同一地址</strong>；如果在函数中对这个地址中的元素进行改变，传入指针所指变量的数据就会确实的发生改变。</p>
+<h2 id="指针传递"><a href="#指针传递" class="headerlink" title="指针传递"></a>指针传递</h2><p>将指针作为函数参数，可以看作是将指针所指变量的<strong>地址</strong>传入函数，形参指针指向该地址，<strong>即两个指针指向同一地址</strong>；如果在函数中对这个地址中的元素进行改变，传入指针所指变量的数据就会确实的发生改变。</p>
 <p>由于 Func2 函数体内的 x 是指向外部变量 n 的指针，* x表示取x中存储的地址的里面的值，即指针所指变量的值；改变该指针的内容将导致 n 的值改变，所以 n 的值成为 10。</p>
 <pre class=" language-c++"><code class="language-c++">void Func2(int *x) 
 { 
@@ -718,8 +716,7 @@ int *m = &n
 Func3(&m); 
 cout << "n = " << *m << endl; // n = 10 
 </code></pre>
-<p>以下是”引用传递”的示例程序。</p>
-<p>由于 Func3 函数体内的 x 是外部变量 n 的引用，x 和 n 是同一个东西，<strong>即一个地址两个名字</strong>；改变 x 等于改变 n，所以 n 的值成为 10。</p>
+<h2 id="引用传递"><a href="#引用传递" class="headerlink" title="引用传递"></a>引用传递</h2><p>由于 Func3 函数体内的 x 是外部变量 n 的引用，x 和 n 是同一个东西，<strong>即一个地址两个名字</strong>；改变 x 等于改变 n，所以 n 的值成为 10。</p>
 <pre class=" language-c++"><code class="language-c++">void Func3(int &x) 
 { 
     x = x + 10; 
@@ -741,11 +738,39 @@ int *m = &n
 Func3(m); 
 cout << "n = " << *m << endl; // n = 10 
 </code></pre>
-<p>对比上述三个示例程序，会发现”引用传递”的性质象”指针传递”，而书写方式象”值传递”。</p>
+<p>对比上述三个示例程序，会发现”引用传递”的性质像”指针传递”，而书写方式像”值传递”。</p>
 <p>实际上”引用”可以做的任何事情”指针”也都能够做，为什么还要”引用”这东西？</p>
 <p>答案是”用适当的工具做恰如其分的工作”。</p>
 <p>指针能够毫无约束地操作内存中的任何东西，尽管指针功能强大，但是非常危险。</p>
 <p>如果的确只需要借用一下某个对象的”别名”，那么就用”引用”，而不要用”指针”，以免发生意外。</p>
+<p><u>当用指针或者引用做形参来改变主函数中变量的值得时候，指针是值传递，传递的是指针变量的值；而引用是址传递，传递的是变量的地址。另外还有一点要知道，指针做形参，传递指针的时候，会产生一个临时的<strong>指针变量</strong>，需要分配额外的内存空间；但是传引用的话则不会，<strong>引用变量</strong>的地址由编译器掌握，程序员无法直接对它进行存取，对引用取地址&amp;，相当于取原变量的地址</u></p>
+<h1 id="amp-p和-amp-p的理解"><a href="#amp-p和-amp-p的理解" class="headerlink" title="*&amp;p和&amp;*p的理解"></a>*&amp;p和&amp;*p的理解</h1><p>指针和地址其实是一个概念，但又有所区别。</p>
+<p>*&amp;p=*q表示:指针变量p是q的引用</p>
+<p>在存储中，每个存储单元就是一个格子。地址就是格子的编号，数据就是格子里面存放的内容。</p>
+<p><strong>&amp;是取地址运算符</strong>，如有 int a; 即分配一个格子起名叫a，&amp;a就是取a的地址，即该盒子的编号。</p>
+<p>*<strong>是取值运算符</strong>，<code>*(&amp;a) </code>就是打开a对应的格子，取出里面的数据，即<code>*(&amp;a)</code>和a等价。</p>
+<p><code>int *p=&amp;a；</code>相当于<code>int *p; p=&amp;a;</code></p>
+<p>p存放的是a的地址，*p也等价于 a。指针变量p既然是变量，也同变量a一样对应一个格子，也有一个地址编号，&amp;p就是取指针p的地址。这样就好理解二级指针了。</p>
+<p><strong>*p和**p的区别</strong></p>
+<p>int *p ：一级指针，表示p所指向的地址里面存放的是一个int类型的值</p>
+<p>int **p ：二级指针，表示p所指向的地址里面存放的是一个指向int类型的指针（即p指向的地址里面存放的是一个指向int的一级指针）</p>
+<p>例：</p>
+<pre class=" language-c"><code class="language-c"><span class="token keyword">int</span> a<span class="token operator">=</span><span class="token number">5</span><span class="token punctuation">;</span>     <span class="token comment" spellcheck="true">//定义整形变量</span>
+<span class="token keyword">int</span> <span class="token operator">*</span>p<span class="token operator">=</span><span class="token operator">&amp;</span>a<span class="token punctuation">;</span>   <span class="token comment" spellcheck="true">//定义一个指针指向这个变量</span>
+<span class="token keyword">int</span> <span class="token operator">*</span><span class="token operator">*</span>p1<span class="token operator">=</span><span class="token operator">&amp;</span>p<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//定义一个二级指针指向p指针</span>
+<span class="token comment" spellcheck="true">/*   那么取出5的方式都有哪些呢？ */</span>
+<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"a=%d"</span><span class="token punctuation">,</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"a=%d"</span><span class="token punctuation">,</span><span class="token operator">*</span>p<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"a=%d"</span><span class="token punctuation">,</span><span class="token operator">*</span><span class="token operator">*</span>p1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>以上3行输出的值都是5 。</p>
+<h3 id="amp-p和-amp-p"><a href="#amp-p和-amp-p" class="headerlink" title="*&amp;p和&amp;*p"></a>*&amp;p和&amp;*p</h3><p>根据运算优先级，*&amp;p 等价于*(&amp;p)。&amp;*p 等价于&amp;(*p)。</p>
+<p>如果p是int *指针变量，那么*&amp;p = p，&amp;*p = p，都是p.</p>
+<pre class=" language-c"><code class="language-c"><span class="token keyword">int</span> a <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">;</span>     <span class="token comment" spellcheck="true">//定义整形变量</span>
+<span class="token keyword">int</span> <span class="token operator">*</span>p <span class="token operator">=</span> <span class="token operator">&amp;</span>a<span class="token punctuation">;</span>   <span class="token comment" spellcheck="true">//定义一个指针指向这个变量，即p=&amp;a</span>
+<span class="token comment" spellcheck="true">//*&amp;p-->一个int指针的引用</span>
+<span class="token comment" spellcheck="true">//&amp;*p-->*P等同于变量a;  所以&amp;(*p)就是&amp;a;</span>
+</code></pre>
 <p><strong>参考</strong></p>
 <p>- <a target="_blank" rel="noopener" href="https://www.runoob.com/w3cnote/cpp-difference-between-pointers-and-references.html">菜鸟教程</a></p>
 
@@ -1259,9 +1284,9 @@ cout << "n = " << *m << endl; // n = 10
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="c++ 传递指针给函数">
                         
-                        <span class="card-title"></span>
+                        <span class="card-title">c++ 传递指针给函数</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1579,7 +1604,7 @@ cout << "n = " << *m << endl; // n = 10
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">5.6k</span>&nbsp;字
+                class="white-color">8.3k</span>&nbsp;字
             
             
             
