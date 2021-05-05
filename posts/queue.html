@@ -464,7 +464,7 @@ WIDGET = {
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://wuhouhuacha.com/images/Queue.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://wuhouhuacha.com/images/Queue.png')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -617,14 +617,14 @@ WIDGET = {
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-05-03
+                    2021-05-04
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    337
+                    521
                 </div>
                 
 
@@ -652,26 +652,20 @@ WIDGET = {
 typedef struct node{
     DataType data[maxsize];
     int front,rear;
-}Node,*SeQueue;
+}Node,SqQueue;
 </code></pre>
-<h3 id="链队结点"><a href="#链队结点" class="headerlink" title="链队结点"></a>链队结点</h3><pre class=" language-c++"><code class="language-c++">#define datatype int
-
-using namespace std;
+<h2 id="链队结点"><a href="#链队结点" class="headerlink" title="链队结点"></a>链队结点</h2><pre class=" language-c++"><code class="language-c++">#define DataType int
 
 typedef struct node{
-    datatype elem;
-    struct node *next;
-}Node,*LinkStack;
-</code></pre>
-<h2 id="共享栈"><a href="#共享栈" class="headerlink" title="共享栈"></a>共享栈</h2><pre class=" language-c++"><code class="language-c++">#define Maxsize 10        //定义栈中元素的最大个数
+    DataType data;
+    struct node * next;
+}LNode,*LinkNode;
+
 typedef struct{
-    ElemType data[Maxsize]；//静态数组存放栈中元素
-    int top0；//0号栈顶指针
-    int top1；//1号栈我顶指针
-}Shstack；
+    LinkNode *front,*rear;
+}LinkQueue;
 </code></pre>
-<p>栈满条件：top0+1==top1</p>
-<h1 id="抽象数据类型"><a href="#抽象数据类型" class="headerlink" title="抽象数据类型"></a>抽象数据类型</h1><pre class=" language-markdown"><code class="language-markdown">ADT Queue{
+<h2 id="抽象数据类型"><a href="#抽象数据类型" class="headerlink" title="抽象数据类型"></a>抽象数据类型</h2><pre class=" language-markdown"><code class="language-markdown">ADT Queue{
 <span class="token code keyword">    数据对象:    D = {a_i|a_i∈Elemset,i=1,2,...n,n≥0}</span>
 <span class="token code keyword">    数据关系:    R_1 = {&lt;a_{i-1},a_i>|a_{i-1},a_i∈D,i=1,2,...n}</span>
 <span class="token code keyword">    基本操作:</span>
@@ -686,7 +680,147 @@ typedef struct{
 <span class="token code keyword">        QueueTraverse(Q);    //按前后顺序输出队列Q的所有元素值（队列Q已存在）</span>
 }ADT List
 </code></pre>
-<h1 id="顺序栈的实现"><a href="#顺序栈的实现" class="headerlink" title="顺序栈的实现"></a>顺序栈的实现</h1>
+<h1 id="队列的实现"><a href="#队列的实现" class="headerlink" title="队列的实现"></a>队列的实现</h1><pre class=" language-c++"><code class="language-c++">#include <iostream>
+#include <cstdlib>
+
+#define maxsize 1024
+#define datatype int
+
+using namespace std;
+
+typedef struct node{
+    datatype data[maxsize];
+    int front;
+    int rear;
+}Node,SqQueue;
+
+bool InitQueue(SqQueue &Q);            //构造一个空的队列Q
+bool DestroyQueue(SqQueue &Q);        //销毁队列Q（队列Q已存在）
+bool ClearQueue(SqQueue &Q);        //将Q清为空队列(队列Q已存在)
+bool QueueEmpty(SqQueue Q);            //若Q为空队列，则返回true，否则返回false（队列Q已存在）
+int QueueLength(SqQueue Q);        //返回队列Q中元素个数，即队列的长度（队列Q已存在）
+bool GetHead(SqQueue Q,datatype &e);//用e返回队头元素。（队列Q已存在）
+bool EnQueue(SqQueue &Q,datatype e);//插入元素e为新的队尾元素（队列Q已存在）
+bool DeQueue(SqQueue &Q,datatype &e);//删除Q的队头元素，并用e返回其值。（队列Q已存在）
+bool QueueTraverse(SqQueue Q);      //按前后顺序输出队列Q的所有元素值（队列Q已存在）
+
+int main(){
+    int data;
+    datatype x;
+    SqQueue q;
+    InitQueue(q);
+    cin>>data;
+    while(data !=-1){
+        EnQueue(q,data);
+        cin>>data;
+    }
+    QueueTraverse(q);
+    cout<<QueueLength(q)<<endl;
+    GetHead(q,x);
+    cout<<x<<endl;
+    DeQueue(q,x);
+    cout<<x<<endl;
+    QueueTraverse(q);
+    ClearQueue(q);
+    QueueTraverse(q);
+    return 0;
+}
+
+//构造一个空的队列Q
+bool InitQueue(SqQueue &Q){
+    Q.front = 0;
+    Q.rear = 0;
+    return true;
+}
+
+//将Q清为空队列(队列Q已存在)
+bool ClearQueue(SqQueue &Q){
+    Q.front = Q.rear = 0;
+    return true;
+}        
+
+//若Q为空队列，则返回true，否则返回false（队列Q已存在）
+bool QueueEmpty(SqQueue Q){
+    return(Q.front == Q.rear);
+}
+
+//返回队列Q中元素个数，即队列的长度（队列Q已存在）
+int QueueLength(SqQueue Q){
+    return (Q.rear-Q.front);
+}
+
+//用e返回队头元素。（队列Q已存在）
+bool GetHead(SqQueue Q,datatype &e){
+    if(!QueueEmpty(Q))return false;
+    e = Q.data[Q.front];
+    return true;
+}
+
+//插入元素e为新的队尾元素（队列Q已存在）
+bool EnQueue(SqQueue &Q,datatype e){
+    if(Q.rear == maxsize)return false;
+    Q.data[Q.rear] = e;
+    Q.rear++;
+}
+
+//删除Q的队头元素，并用e返回其值。（队列Q已存在）
+bool DeQueue(SqQueue &Q,datatype &e){
+    if(!QueueEmpty(Q))return false;
+    e = Q.data[Q.front];
+    Q.front++;
+}
+
+//按前后顺序输出队列Q的所有元素值（队列Q已存在）
+bool QueueTraverse(SqQueue Q){
+    if(!QueueEmpty(Q))return false;
+    for(int i = Q.front; i<Q.rear;i++){
+        cout<<Q.data[i];
+    }
+    cout<<endl;
+}
+</code></pre>
+<p>循环队列是改进的顺序队列</p>
+<p><strong>循环队列</strong>牺牲一个存储单元来<strong>区别队空和队满</strong>！</p>
+<table>
+<thead>
+<tr>
+<th align="center">区别</th>
+<th align="center">顺序队列</th>
+<th align="center">循环队列</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">队空</td>
+<td align="center">front = rear</td>
+<td align="center">front = rear</td>
+</tr>
+<tr>
+<td align="center">队满</td>
+<td align="center">rear = MaxSize</td>
+<td align="center">（rear+1）%MaxSize = front</td>
+</tr>
+<tr>
+<td align="center">入队</td>
+<td align="center">rear++</td>
+<td align="center">rear=（rear+1）%MaxSize</td>
+</tr>
+<tr>
+<td align="center">出队</td>
+<td align="center">front++</td>
+<td align="center">front=（front+1）%MaxSize</td>
+</tr>
+<tr>
+<td align="center">元素个数</td>
+<td align="center">rear-front</td>
+<td align="center">(rear-front+MaxSize)%MaxSize</td>
+</tr>
+</tbody></table>
+<p>要求循环队列不能牺牲一个存储单元来区别队空和队满</p>
+<p>①在结构体里直接加size记录队列元素个数</p>
+<p>②在结构体里加入一个tag（每次删除操作成功时，都令tag=0；每次插入操作成功时，都令tag=1；）</p>
+<p>判空：front = rear&amp;&amp;tag=0（只有删除操作，才可能导致队空）</p>
+<p>队满：front = rear&amp;&amp;tag=1（只有插入操作，才可能导致队满）</p>
+
                 
             </div>
             <hr/>
@@ -1197,7 +1331,7 @@ typedef struct{
                 <a href="/posts/queue.html">
                     <div class="card-image">
                         
-                        <img src="https://wuhouhuacha.com/images/Queue.jpg" class="responsive-img" alt="Queue">
+                        <img src="https://wuhouhuacha.com/images/Queue.png" class="responsive-img" alt="Queue">
                         
                         <span class="card-title">Queue</span>
                     </div>
@@ -1517,7 +1651,7 @@ typedef struct{
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">9.1k</span>&nbsp;字
+                class="white-color">9.3k</span>&nbsp;字
             
             
             
