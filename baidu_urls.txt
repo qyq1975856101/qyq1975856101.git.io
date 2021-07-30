@@ -1,3 +1,6 @@
+https://www.wuhouhuacha.com/posts/tree.html
+https://www.wuhouhuacha.com/posts/string.html
+https://www.wuhouhuacha.com/posts/the-application-of-the-stack.html
 https://www.wuhouhuacha.com/posts/queue.html
 https://www.wuhouhuacha.com/posts/stack.html
 https://www.wuhouhuacha.com/posts/morelinklist.html
