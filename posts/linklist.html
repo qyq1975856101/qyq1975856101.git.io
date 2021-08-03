@@ -617,7 +617,7 @@ WIDGET = {
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-04-26
+                    2021-08-02
                 </div>
                 
 
@@ -655,6 +655,24 @@ typedef struct node{        //定义单链表结点类型
 </code></pre>
 <p>强调这是一个单链表——使用Linklist，如函数传递参数<br>强调这是一个结点——使用LNode *，如函数返回一个结点</p>
 <p>eg:    LNode * ListFind(LinkList L,datatype i)</p>
+<h1 id="抽象数据类型"><a href="#抽象数据类型" class="headerlink" title="抽象数据类型"></a>抽象数据类型</h1><pre class=" language-markdown"><code class="language-markdown">ADT List{
+<span class="token code keyword">    数据对象:    D = {a_i|a_i∈Elemset,i=1,2,...n,n≥0}</span>
+<span class="token code keyword">    数据关系:    R_1 = {&lt;a_{i-1},a_i>|a_{i-1},a_i∈D,i=1,2,...n,n≥0}</span>
+<span class="token code keyword">    基本操作:</span>
+<span class="token code keyword">        InitList(&amp;L);        //构造一个空的线性表L</span>
+<span class="token code keyword">        DestroyList(&amp;L);    //销毁线性表L（线性表L已存在）</span>
+<span class="token code keyword">        ClearList(&amp;L);        //将L重置为空表(线性表L已存在)</span>
+<span class="token code keyword">        ListEmpty(L);        //若L为空表，则返回true，否则返回false</span>
+<span class="token code keyword">        ListLength(L);        //返回L中数据元素个数</span>
+<span class="token code keyword">        GetElem(L,i,&amp;e)        //用e返回L中第i个数据元素的值。</span>
+<span class="token code keyword">        Listlnsert(&amp;L,i,Item);//在表L中的第i个位置后插入指定元素e</span>
+<span class="token code keyword">        ListDelete(&amp;L,i);//删除表L中第i个位置后的元素 </span>
+<span class="token code keyword">        GetNext(L,Item,&amp;p);    //在表L中查找具有给定关键字值的元素的下一位,并赋值给形参。</span>
+<span class="token code keyword">        LocateElem(L,Item);    //在表L中查找具有给定关键字值的元素,成功返回下标。 </span>
+<span class="token code keyword">        GetPrior(L,Item,&amp;p);//在表L中查找具有给定关键字值的元素的前一位,并赋值给形参。</span>
+<span class="token code keyword">        PrintList(L);//按前后顺序输出线性表L的所有元素值 </span>
+}ADT List
+</code></pre>
 <h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><p><strong>不带头结点的初始化</strong></p>
 <pre class=" language-c++"><code class="language-c++">//初始化一个空的单链表
 bool InitList(LinkList &L){
@@ -679,24 +697,6 @@ bool InitList(LinkList &L){
 ...
 LinkList L;        //声明一个指向单链表的指针
 InitList(L);    //初始化一个空表
-</code></pre>
-<h1 id="抽象数据类型"><a href="#抽象数据类型" class="headerlink" title="抽象数据类型"></a>抽象数据类型</h1><pre class=" language-markdown"><code class="language-markdown">ADT List{
-<span class="token code keyword">    数据对象:    D = {a_i|a_i∈Elemset,i=1,2,...n,n≥0}</span>
-<span class="token code keyword">    数据关系:    R_1 = {&lt;a_{i-1},a_i>|a_{i-1},a_i∈D,i=1,2,...n,n≥0}</span>
-<span class="token code keyword">    基本操作:</span>
-<span class="token code keyword">        InitList(&amp;L);        //构造一个空的线性表L</span>
-<span class="token code keyword">        DestroyList(&amp;L);    //销毁线性表L（线性表L已存在）</span>
-<span class="token code keyword">        ClearList(&amp;L);        //将L重置为空表(线性表L已存在)</span>
-<span class="token code keyword">        ListEmpty(L);        //若L为空表，则返回true，否则返回false</span>
-<span class="token code keyword">        ListLength(L);        //返回L中数据元素个数</span>
-<span class="token code keyword">        GetElem(L,i,&amp;e)        //用e返回L中第i个数据元素的值。</span>
-<span class="token code keyword">        Listlnsert(&amp;L,i,Item);//在表L中的第i个位置后插入指定元素e</span>
-<span class="token code keyword">        ListDelete(&amp;L,i);//删除表L中第i个位置后的元素 </span>
-<span class="token code keyword">        GetNext(L,Item,&amp;p);    //在表L中查找具有给定关键字值的元素的下一位,并赋值给形参。</span>
-<span class="token code keyword">        LocateElem(L,Item);    //在表L中查找具有给定关键字值的元素,成功返回下标。 </span>
-<span class="token code keyword">        GetPrior(L,Item,&amp;p);//在表L中查找具有给定关键字值的元素的前一位,并赋值给形参。</span>
-<span class="token code keyword">        PrintList(L);//按前后顺序输出线性表L的所有元素值 </span>
-}ADT List
 </code></pre>
 <h1 id="带头结点单链表的实现"><a href="#带头结点单链表的实现" class="headerlink" title="带头结点单链表的实现"></a>带头结点单链表的实现</h1><pre class=" language-c++"><code class="language-c++">#include <iostream>
 #include <cstdlib>

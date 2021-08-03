@@ -617,7 +617,7 @@ WIDGET = {
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-04-25
+                    2021-07-31
                 </div>
                 
 
@@ -714,7 +714,7 @@ void Func3(int **x)
 int n = 0;
 int *m = &n
 Func3(&m); 
-cout << "n = " << *m << endl; // n = 10 
+cout << "n = "<<n<< "*m = " << *m << endl; // n = 0 *m = 10
 </code></pre>
 <h2 id="引用传递"><a href="#引用传递" class="headerlink" title="引用传递"></a>引用传递</h2><p>由于 Func3 函数体内的 x 是外部变量 n 的引用，x 和 n 是同一个东西，<strong>即一个地址两个名字</strong>；改变 x 等于改变 n，所以 n 的值成为 10。</p>
 <pre class=" language-c++"><code class="language-c++">void Func3(int &x) 
@@ -736,7 +736,7 @@ void Func3(int *&x)
 int n = 0;
 int *m = &n
 Func3(m); 
-cout << "n = " << *m << endl; // n = 10 
+cout << "n = "<<n<< "*m = " << *m << endl; // n = 0 *m = 10
 </code></pre>
 <p>对比上述三个示例程序，会发现”引用传递”的性质像”指针传递”，而书写方式像”值传递”。</p>
 <p>实际上”引用”可以做的任何事情”指针”也都能够做，为什么还要”引用”这东西？</p>

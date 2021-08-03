@@ -617,14 +617,14 @@ WIDGET = {
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-04-27
+                    2021-08-02
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    876
+                    875
                 </div>
                 
 
@@ -652,7 +652,7 @@ WIDGET = {
 typedef struct SquenList{
     datatype elem[maxsize];    //用静态的"数组"存放数据元素    
     int length;                //顺序表的当前长度
-}SquenList, * sequenlist;    //顺序表的类型定义
+}SquenList, *sequenlist;    //顺序表的类型定义
 SquenList S;                //声明一个顺序表
 S.length = 0;                //初始化
 </code></pre>
@@ -660,9 +660,9 @@ S.length = 0;                //初始化
 typedef struct SquenList{    
     datatype *elem;            //用静态的"数组"存放数据元素    
     int length,MaxSize;        //顺序表的当前长度和最大容量
-}SquenList, * sequenlist;    //顺序表的类型定义
+}SquenList, *sequenlist;    //顺序表的类型定义
 sequenlist S;                //声明一个顺序表
-S->data = (SquenList *)malloc(sizeof(SquenList)*InitSize);    //初始化
+S = (SquenList *)malloc(sizeof(SquenList)*InitSize);    //初始化
 S->length = 0;
 S->MaxSize = InitSize;
 </code></pre>
@@ -700,7 +700,7 @@ using namespace std;
 typedef struct SquenList{    
     datatype elem[maxsize];    //用静态的"数组"存放数据元素    
     int length;                //顺序表的当前长度
-}SquenList, * sequenlist;    //顺序表的类型定义
+}SquenList, *sequenlist;    //顺序表的类型定义
 
 void InitList(sequenlist L);                            //初始化表
 void DestroyList(sequenlist L);                            //销毁

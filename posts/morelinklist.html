@@ -617,14 +617,14 @@ WIDGET = {
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-05-06
+                    2021-08-02
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    508
+                    521
                 </div>
                 
 
@@ -646,7 +646,7 @@ WIDGET = {
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="单链表结点描述"><a href="#单链表结点描述" class="headerlink" title="单链表结点描述"></a>单链表结点描述</h2><pre class=" language-c++"><code class="language-c++">#define datatype int        //定义默认数据类型 
+                <h1 id="结点的描述"><a href="#结点的描述" class="headerlink" title="结点的描述"></a>结点的描述</h1><h2 id="单链表结点描述"><a href="#单链表结点描述" class="headerlink" title="单链表结点描述"></a>单链表结点描述</h2><pre class=" language-c++"><code class="language-c++">#define datatype int        //定义默认数据类型 
 
 typedef struct node{        //定义单链表结点类型
     datatype elem;            //数据域
@@ -668,8 +668,7 @@ typedef struct{
     int next;                //下一个元素的数组下标
 }SLinkList[MaxSize];
 </code></pre>
-<p>双链表基本操作的实现</p>
-<pre class=" language-c++"><code class="language-c++">#include <iostream>
+<h1 id="链表的实现"><a href="#链表的实现" class="headerlink" title="链表的实现"></a>链表的实现</h1><h2 id="双链表基本操作的实现"><a href="#双链表基本操作的实现" class="headerlink" title="双链表基本操作的实现"></a>双链表基本操作的实现</h2><pre class=" language-c++"><code class="language-c++">#include <iostream>
 #include <cstdlib>
 #define datatype int
 
@@ -748,6 +747,7 @@ bool HeadInsertList(DLinkList &L){
         DLNode *temp = (DLNode *)malloc(sizeof(DLNode));
         if(!temp) return false;
         temp->elem = x;
+        temp->next = NULL;
         InsertNextNode(L,temp);
         cin>>x;
     }
