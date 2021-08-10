@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="LinkList, HTML,CSS,JavaScript,JQuery,React,Vue.js等">
+    <meta name="keywords" content="Exercise-questions-stackAndqueue, HTML,CSS,JavaScript,JQuery,React,Vue.js等">
     <meta name="description" content="立誓今生尊你为王 用我热血为你封疆">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>LinkList | 午后</title>
+    <title>Exercise-questions-stackAndqueue | 午后</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -464,12 +464,12 @@ WIDGET = {
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/25.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">LinkList</h1>
+                    <h1 class="description center-align post-title">Exercise-questions-stackAndqueue</h1>
                 </div>
             </div>
         </div>
@@ -610,21 +610,21 @@ WIDGET = {
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-04-24
+                    2021-08-10
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-08-02
+                    2021-08-10
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.6k
+                    0
                 </div>
                 
 
@@ -646,363 +646,7 @@ WIDGET = {
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="链表的定义"><a href="#链表的定义" class="headerlink" title="链表的定义"></a>链表的定义</h1><h2 id="单链表结点描述"><a href="#单链表结点描述" class="headerlink" title="单链表结点描述"></a>单链表结点描述</h2><pre class=" language-c++"><code class="language-c++">#define datatype int        //定义默认数据类型 
-
-typedef struct node{        //定义单链表结点类型
-    datatype elem;            //数据域
-    struct node *next;        //指针域
-}LNode,*LinkList;
-</code></pre>
-<p>强调这是一个单链表——使用Linklist，如函数传递参数<br>强调这是一个结点——使用LNode *，如函数返回一个结点</p>
-<p>eg:    LNode * ListFind(LinkList L,datatype i)</p>
-<h1 id="抽象数据类型"><a href="#抽象数据类型" class="headerlink" title="抽象数据类型"></a>抽象数据类型</h1><pre class=" language-markdown"><code class="language-markdown">ADT List{
-<span class="token code keyword">    数据对象:    D = {a_i|a_i∈Elemset,i=1,2,...n,n≥0}</span>
-<span class="token code keyword">    数据关系:    R_1 = {&lt;a_{i-1},a_i>|a_{i-1},a_i∈D,i=1,2,...n,n≥0}</span>
-<span class="token code keyword">    基本操作:</span>
-<span class="token code keyword">        InitList(&amp;L);        //构造一个空的线性表L</span>
-<span class="token code keyword">        DestroyList(&amp;L);    //销毁线性表L（线性表L已存在）</span>
-<span class="token code keyword">        ClearList(&amp;L);        //将L重置为空表(线性表L已存在)</span>
-<span class="token code keyword">        ListEmpty(L);        //若L为空表，则返回true，否则返回false</span>
-<span class="token code keyword">        ListLength(L);        //返回L中数据元素个数</span>
-<span class="token code keyword">        GetElem(L,i,&amp;e)        //用e返回L中第i个数据元素的值。</span>
-<span class="token code keyword">        Listlnsert(&amp;L,i,Item);//在表L中的第i个位置后插入指定元素e</span>
-<span class="token code keyword">        ListDelete(&amp;L,i);//删除表L中第i个位置后的元素 </span>
-<span class="token code keyword">        GetNext(L,Item,&amp;p);    //在表L中查找具有给定关键字值的元素的下一位,并赋值给形参。</span>
-<span class="token code keyword">        LocateElem(L,Item);    //在表L中查找具有给定关键字值的元素,成功返回下标。 </span>
-<span class="token code keyword">        GetPrior(L,Item,&amp;p);//在表L中查找具有给定关键字值的元素的前一位,并赋值给形参。</span>
-<span class="token code keyword">        PrintList(L);//按前后顺序输出线性表L的所有元素值 </span>
-}ADT List
-</code></pre>
-<h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><p><strong>不带头结点的初始化</strong></p>
-<pre class=" language-c++"><code class="language-c++">//初始化一个空的单链表
-bool InitList(LinkList &L){
-    L = NULL；//空表，暂时还没有任何结点
-    return true;
-}
-...
-LinkList L;        //声明一个指向单链表的指针
-InitList(L);    //初始化一个空表
-</code></pre>
-<p>其中<code>bool InitList(LinkList &amp;L)</code>等价于<code>bool InitList(LNode *&amp;L)</code></p>
-<p>理解 <code>&amp;*p</code>等于``*&amp;p`等于 p, 也就是 p 指向的 变量的地址</p>
-<p><strong>带头结点的初始化</strong></p>
-<pre class=" language-c++"><code class="language-c++">//初始化一个空的单链表
-bool InitList(LinkList &L){
-    L=(LNode*)malloc(sizeof(LNode));    //分配一个头结点
-    if(L==NULL)                            //内存不足，分配失败
-        return false;
-    L->next=NULL;                        //头结点之后暂时还没有节点
-    return true;
-}
-...
-LinkList L;        //声明一个指向单链表的指针
-InitList(L);    //初始化一个空表
-</code></pre>
-<h1 id="带头结点单链表的实现"><a href="#带头结点单链表的实现" class="headerlink" title="带头结点单链表的实现"></a>带头结点单链表的实现</h1><pre class=" language-c++"><code class="language-c++">#include <iostream>
-#include <cstdlib>
-#define datatype int
-
-using namespace std;
-
-typedef struct node{
-    datatype elem;
-    struct node *next;
-}LNode,*LinkList;
-
-bool InitList(LinkList &L);                 //初始化一个空的单链表
-bool ListInsert(LinkList &L,int i,datatype e);//插入操作。在表L中的第i个位置上插入指定元素e。
-bool ListDelete(LinkList &L,int i,datatype &e);//删除操作。删除表L中第i个位置的元素，并用e返回删除元素的值。
-LNode * GetNode(LinkList L,int i);          //查找第i个结点
-datatype GetElem(LinkList L,int i);             //按位查找操作。获取表L中第个位置的元素的值。
-LNode * LocateElem(LinkList L,datatype e);     //按值查找操作。在表L中查找具有给定关键字值的元素。
-int ListLength(LinkList L);                    //查询单链表表长，返回表长
-void print(LinkList L);                        //打印单链表
-void ListTailInsert(LinkList &L);            //尾插法，顺序。
-void ListHeadInsert(LinkList &L);            //头插法，倒序。
-
-int main(){
-    LinkList head;
-    int e;
-    InitList(head);
-    ListHeadInsert(head);        //ListTailInsert(head);
-    print(head);
-    ListInsert(head,2,3);
-    print(head);
-    ListDelete(head,3,e);
-    print(head);
-    cout<<GetElem(head,2)<<endl;
-    cout<<LocateElem(head,5)->elem<<endl;
-} 
-
-//初始化一个空的单链表
-bool InitList(LinkList &L){
-    L=(LNode*)malloc(sizeof(LNode));    //分配一个头结点
-    if(L==NULL)                            //内存不足，分配失败
-        return false;
-    L->next=NULL;                        //头结点之后暂时还没有节点
-    return true;
-}
-
-//插入操作。在表L中的第i个位置上插入指定元素e。
-bool ListInsert(LinkList &L,int i,datatype e){
-    LinkList temp = GetNode(L,i-1);
-    LNode * s = (LinkList)malloc(sizeof(LNode));
-    s->elem = e;
-    s->next = temp->next;
-    temp->next = s;
-    return true;
-}
-
-//删除操作。删除表L中第i个位置的元素，并用e返回删除元素的值。
-bool ListDelete(LinkList &L,int i,datatype &e){
-    LinkList temp = GetNode(L,i-1);
-    LNode *p = temp->next;
-    temp->next = p->next;
-    e = p->elem;
-    free(p);
-    return true;
-}
-
-//查找第i个结点
-LNode * GetNode(LinkList L,int i){
-    if(i<0||i>ListLength(L)){
-        return NULL;
-    }
-    LinkList temp = L;
-    int j = 0;
-    while(temp && j != i){
-        temp = temp->next;
-        j++;
-    }
-    return temp;
-}
-
-//按位查找操作。获取表L中第i个位置的元素的值。
-datatype GetElem(LinkList L,int i){
-    LinkList temp = GetNode(L,i);
-    return temp->elem;
-}
-
-//按值查找操作。在表L中查找具有给定关键字值的元素。
-LNode * LocateElem(LinkList L,datatype e){
-    LNode * temp = L;
-    while(temp&&temp->elem!=e)
-        temp = temp->next;
-    return temp;
-}
-
-//查询单链表表长，返回表长
-int ListLength(LinkList L){
-    LinkList temp = L->next;
-    int i = 0;
-    while(temp){
-        temp = temp->next;
-        i++;
-    }
-    return i;
-}
-
-//打印单链表
-void print(LinkList L){
-    LNode * temp = L->next;
-    while(temp){
-        cout<<temp->elem;
-        temp = temp->next;
-    }
-    cout<<endl;
-}
-
-//尾插法，顺序。
-void ListTailInsert(LinkList &L){
-    int elem;
-    cin>>elem;
-    LNode * r = L;        //设置一个尾指针，每次在尾指针后面插入
-    while(elem != -1){
-        LNode * temp = (LNode *)malloc(sizeof(LNode));
-        temp->elem = elem;
-        r->next = temp;
-        r = r->next;
-        cin>>elem;
-    }
-    r->next = NULL;
-}
-
-//头插法，倒序。
-void ListHeadInsert(LinkList &L){
-    int elem;
-    cin>>elem;
-    while(elem != -1){
-        LNode * temp = (LNode *)malloc(sizeof(LNode));
-        temp->elem = elem;
-        temp->next = L->next;
-        L->next = temp;
-        cin>>elem;
-    }
-}
-</code></pre>
-<h1 id="不带头结点单链表的实现"><a href="#不带头结点单链表的实现" class="headerlink" title="不带头结点单链表的实现"></a>不带头结点单链表的实现</h1><pre class=" language-c++"><code class="language-c++">#include <iostream>
-#include <cstdlib>
-#define datatype int
-
-using namespace std;
-
-typedef struct node{
-    datatype elem;
-    struct node *next;
-}LNode,*LinkList;
-
-bool InitList(LinkList &L);                 //初始化一个空的单链表
-bool ListInsert(LinkList &L,int i,datatype e);//插入操作。在表L中的第i个位置上插入指定元素e。
-bool ListDelete(LinkList &L,int i,datatype &e);//删除操作。删除表L中第i个位置的元素，并用e返回删除元素的值。
-LNode * GetNode(LinkList L,int i);          //查找第i个结点
-datatype GetElem(LinkList L,int i);             //按位查找操作。获取表L中第个位置的元素的值。
-LNode * LocateElem(LinkList L,datatype e);     //按值查找操作。在表L中查找具有给定关键字值的元素。
-int ListLength(LinkList L);                    //查询单链表表长，返回表长
-void print(LinkList L);                        //打印单链表
-void ListTailInsert(LinkList &L);            //尾插法，顺序。
-void ListHeadInsert(LinkList &L);            //头插法，倒序。
-
-int main(){
-    LinkList L;
-    int e;
-    InitList(L);
-    ListTailInsert(L);        //ListTailInsert(L);
-    print(L);
-    ListInsert(L,2,3);
-    print(L);
-    ListDelete(L,3,e);
-    print(L);
-    cout<<GetElem(L,2)<<endl;
-    cout<<LocateElem(L,5)->elem<<endl;
-} 
-
-//初始化一个空的单链表
-bool InitList(LinkList &L){
-    L = NULL;                    
-    return true;
-}
-
-//插入操作。在表L中的第i个位置上插入指定元素e。
-bool ListInsert(LinkList &L,int i,datatype e){
-    LinkList temp = GetNode(L,i-1);
-    if(!temp){
-        if(i == 1){
-            LNode * s = (LinkList)malloc(sizeof(LNode));
-            s->elem = e;
-            s->next = L;
-            L = s;
-            return true;
-        }
-        else
-            return false;
-    }
-    LNode * s = (LinkList)malloc(sizeof(LNode));
-    s->elem = e;
-    s->next = temp->next;
-    temp->next = s;
-    return true;
-}
-
-//删除操作。删除表L中第i个位置的元素，并用e返回删除元素的值。
-bool ListDelete(LinkList &L,int i,datatype &e){
-    LinkList temp = GetNode(L,i-1);
-    if(!temp){
-        L=NULL;
-        return true;
-    }
-    LNode *p = temp->next;
-    temp->next = p->next;
-    e = p->elem;
-    free(p);
-    return true;
-}
-
-//查找第i个结点
-LNode * GetNode(LinkList L,int i){
-    if(i<1||i>ListLength(L)){
-        return NULL;
-    }
-    LinkList temp = L;
-    int j = 1;
-    while(temp && j != i){
-        temp = temp->next;
-        j++;
-    }
-    return temp;
-}
-
-//按位查找操作。获取表L中第i个位置的元素的值。
-datatype GetElem(LinkList L,int i){
-    LinkList temp = GetNode(L,i);
-    if(temp)
-    return temp->elem;
-}
-
-//按值查找操作。在表L中查找具有给定关键字值的元素。
-LNode * LocateElem(LinkList L,datatype e){
-    LNode * temp = L;
-    while(temp&&temp->elem!=e)
-        temp = temp->next;
-    return temp;
-}
-
-//查询单链表表长，返回表长
-int ListLength(LinkList L){
-    LinkList temp = L;
-    int i = 0;
-    while(temp){
-        temp = temp->next;
-        i++;
-    }
-    return i;
-}
-
-//打印单链表
-void print(LinkList L){
-    LNode * temp = L;
-    while(temp){
-        cout<<temp->elem;
-        temp = temp->next;
-    }
-    cout<<endl;
-}
-
-//尾插法，顺序。
-void ListTailInsert(LinkList &L){
-    int elem;
-    cin>>elem;
-    LNode * r = L;        //设置一个尾指针，每次在尾指针后面插入
-    if(elem!=-1){
-        LNode * temp = (LNode *)malloc(sizeof(LNode));
-        temp->elem = elem;
-        L=temp; 
-        r=temp;
-        cin>>elem;
-        while(elem != -1){
-            LNode * temp = (LNode *)malloc(sizeof(LNode));
-            temp->elem = elem;
-            r->next = temp;
-            r = r->next;
-            cin>>elem;
-        }
-        r->next = NULL;
-    }
-}
-
-//头插法，倒序。
-void ListHeadInsert(LinkList &L){
-    int elem;
-    cin>>elem;
-    while(elem != -1){
-        LNode * temp = (LNode *)malloc(sizeof(LNode));
-        temp->elem = elem;
-        temp->next = L;
-        L = temp;
-        cin>>elem;
-    }
-}
-</code></pre>
-
+                
                 
             </div>
             <hr/>
@@ -1028,7 +672,7 @@ void ListHeadInsert(LinkList &L){
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://www.wuhouhuacha.com/posts/linklist.html">https://www.wuhouhuacha.com/posts/linklist.html</a>
+                    <a href="https://www.wuhouhuacha.com/posts/exercise-questions-stackandqueue.html">https://www.wuhouhuacha.com/posts/exercise-questions-stackandqueue.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -1505,17 +1149,18 @@ void ListHeadInsert(LinkList &L){
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/posts/morelinklist.html">
+                <a href="/posts/exercise-questions-stackandqueue.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="MoreLinkList">
+                        <img src="/medias/featureimages/25.jpg" class="responsive-img" alt="Exercise-questions-stackAndqueue">
                         
-                        <span class="card-title">MoreLinkList</span>
+                        <span class="card-title">Exercise-questions-stackAndqueue</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1525,9 +1170,9 @@ void ListHeadInsert(LinkList &L){
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-04-26
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-08-10
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1540,6 +1185,7 @@ void ListHeadInsert(LinkList &L){
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -1558,13 +1204,13 @@ void ListHeadInsert(LinkList &L){
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/cpp-passing-pointers-to-functions.html">
+                <a href="/posts/exercise-questions-list.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="c++ 传递指针给函数">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="Exercise-questions-list">
                         
-                        <span class="card-title">c++ 传递指针给函数</span>
+                        <span class="card-title">Exercise-questions-list</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1575,7 +1221,7 @@ void ListHeadInsert(LinkList &L){
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-23
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-08-07
                             </span>
                         <span class="publish-author">
                             
@@ -1592,8 +1238,8 @@ void ListHeadInsert(LinkList &L){
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
-                        <span class="chip bg-color">学习笔记</span>
+                    <a href="/tags/data-structure/">
+                        <span class="chip bg-color">data_structure</span>
                     </a>
                     
                 </div>
