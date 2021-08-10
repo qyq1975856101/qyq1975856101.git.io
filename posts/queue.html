@@ -617,14 +617,14 @@ WIDGET = {
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-05-05
+                    2021-08-10
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    730
+                    1.1k
                 </div>
                 
 
@@ -715,11 +715,11 @@ int main(){
         cin>>data;
     }
     QueueTraverse(q);
-    cout<<QueueLength(q)<<endl;
+    cout<< QueueLength(q)<< endl;
     GetHead(q,x);
-    cout<<x<<endl;
+    cout<< x<< endl;
     DeQueue(q,x);
-    cout<<x<<endl;
+    cout<< x<< endl;
     QueueTraverse(q);
     ClearQueue(q);
     QueueTraverse(q);
@@ -773,10 +773,10 @@ bool DeQueue(SqQueue &Q,datatype &e){
 //按前后顺序输出队列Q的所有元素值（队列Q已存在）
 bool QueueTraverse(SqQueue Q){
     if(!QueueEmpty(Q))return false;
-    for(int i = Q.front; i<Q.rear;i++){
-        cout<<Q.data[i];
+    for(int i = Q.front; i< Q.rear;i++){
+        cout<< Q.data[i];
     }
-    cout<<endl;
+    cout<< endl;
 }
 </code></pre>
 <p>循环队列是改进的顺序队列</p>
@@ -1017,10 +1017,10 @@ bool QueueTraverse(LinkQueue Q){
 // bool QueueTraverse(LinkQueue Q){
 //     LinkNode temp = Q->front;
 //     while(temp){
-//         cout<<temp->data;
+//         cout<< temp->data;
 //         temp = temp->next;
 //     }
-//     cout<<endl;
+//     cout<< endl;
 //     return true;
 // }
 </code></pre>
@@ -1879,7 +1879,7 @@ cond3(no)->op5
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">17.9k</span>&nbsp;字
+                class="white-color">18.9k</span>&nbsp;字
             
             
             

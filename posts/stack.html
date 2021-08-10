@@ -617,14 +617,14 @@ WIDGET = {
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-05-04
+                    2021-08-10
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    524
+                    697
                 </div>
                 
 
@@ -719,13 +719,13 @@ int main(){
     Push(S,7);
     PrintStack(S);
     GetTop(S,e);
-    cout<<e<<endl;
+    cout<< e<< endl;
     Pop(S,e);
-    cout<<e<<endl;
+    cout<< e<< endl;
     PrintStack(S);
     ClearStack(S);
-    cout<<StackLength(S)<<endl;
-    cout<<StackEmpty(S)<<endl;
+    cout<< StackLength(S)<< endl;
+    cout<< StackEmpty(S)<< endl;
 }
 
 // 栈的初始化 
@@ -774,10 +774,10 @@ bool Pop(SequenceStack &S,DataType &e){
 void PrintStack(SequenceStack S){
     int i = S.top;
     while(i>-1){
-        cout<<S.elem[i];
+        cout<< S.elem[i];
         i--;
     }
-    cout<<endl;
+    cout<< endl;
 }
 </code></pre>
 <h1 id="链栈实现"><a href="#链栈实现" class="headerlink" title="链栈实现"></a>链栈实现</h1><pre class=" language-c++"><code class="language-c++">#include <iostream>
@@ -885,10 +885,10 @@ bool Pop(LinkStack &S,datatype &e){
 void PrintStack(LinkStack S){
     Node * temp = S->next;
     while(temp){
-        cout<<temp->elem;
+        cout<< temp->elem;
         temp = temp->next;
     }
-    cout<<endl;
+    cout<< endl;
 }
 </code></pre>
 
@@ -1721,7 +1721,7 @@ void PrintStack(LinkStack S){
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">17.9k</span>&nbsp;字
+                class="white-color">18.9k</span>&nbsp;字
             
             
             
