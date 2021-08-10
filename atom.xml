@@ -6,7 +6,7 @@
   <link href="https://www.wuhouhuacha.com/atom.xml" rel="self"/>
   
   <link href="https://www.wuhouhuacha.com/"/>
-  <updated>2021-08-10T10:53:21.626Z</updated>
+  <updated>2021-08-10T10:57:40.636Z</updated>
   <id>https://www.wuhouhuacha.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://www.wuhouhuacha.com/posts/exercise-questions-stackandqueue.html"/>
     <id>https://www.wuhouhuacha.com/posts/exercise-questions-stackandqueue.html</id>
     <published>2021-08-10T10:42:12.000Z</published>
-    <updated>2021-08-10T10:53:21.626Z</updated>
+    <updated>2021-08-10T10:57:40.636Z</updated>
     
     
     
@@ -38,14 +38,14 @@
     <link href="https://www.wuhouhuacha.com/posts/exercise-questions-list.html"/>
     <id>https://www.wuhouhuacha.com/posts/exercise-questions-list.html</id>
     <published>2021-08-07T10:51:48.000Z</published>
-    <updated>2021-08-10T10:39:00.011Z</updated>
+    <updated>2021-08-10T11:02:50.485Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h3 id=&quot;0-设顺序表用数组A-表示，表中元素存储在数组下标0-m-n-1的范围内，前m个元素递增有序，后n个元素也递增有序，设计一个算法，使得整个顺序表有序。&quot;&gt;&lt;a</summary>
+    <summary type="html">&lt;h4 id=&quot;0-设顺序表用数组A-表示，表中元素存储在数组下标0-m-n-1的范围内，前m个元素递增有序，后n个元素也递增有序，设计一个算法，使得整个顺序表有序。&quot;&gt;&lt;a</summary>
         
       
     
