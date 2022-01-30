@@ -168,17 +168,6 @@
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="/mylove" class="waves-effect waves-light">
-      
-      <i class="fas fa-crown" style="zoom: 0.6;"></i>
-      
-      <span>Mylove</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
     <a href="" class="waves-effect waves-light">
 
       
@@ -350,17 +339,6 @@
 			    <i class="fa-fw fas fa-comments"></i>
 			
 			ArtiTalk
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/mylove" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-crown"></i>
-			
-			Mylove
 		</a>
           
         </li>
@@ -617,14 +595,14 @@ WIDGET = {
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-08-02
+                    2021-09-02
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    875
+                    971
                 </div>
                 
 
@@ -724,16 +702,16 @@ int main(){
     }
     Listlnsert(s,2,0);
     PrintList(s);
-    cout<<"ListLength(s):"<<ListLength(s)<<endl;
-    cout<<"GetNode(s,2):"<<GetNode(s,2)<<endl;
-    cout<<"GetNext(s,2,&temp):"<<GetNext(s,2,temp)<<endl;
-    cout<<"temp:"<<temp<<endl;
-    cout<<"LocateElem(s,2):"<<LocateElem(s,2)<<endl;
-    cout<<"GetPrior(s,2,&temp):"<<GetPrior(s,2,temp)<<endl;
-    cout<<"temp:"<<temp<<endl;
-    cout<<"ListDelete(s,2):"<<ListDelete(s,2)<<endl;
+    cout<< "ListLength(s):"<< ListLength(s)<< endl;
+    cout<< "GetNode(s,2):"<< GetNode(s,2)<< endl;
+    cout<< "GetNext(s,2,&temp):"<< GetNext(s,2,temp)<< endl;
+    cout<< "temp:"<< temp<< endl;
+    cout<< "LocateElem(s,2):"<< LocateElem(s,2)<< endl;
+    cout<< "GetPrior(s,2,&temp):"<< GetPrior(s,2,temp)<< endl;
+    cout<< "temp:"<< temp<< endl;
+    cout<< "ListDelete(s,2):"<< ListDelete(s,2)<< endl;
     PrintList(s);    
-    cout<<"ListLength(s):"<<ListLength(s)<<endl;
+    cout<< "ListLength(s):"<< ListLength(s)<< endl;
 }
 
 void InitList(sequenlist L){    
@@ -750,7 +728,7 @@ int ListLength(sequenlist L){
 
 void Listlnsert(sequenlist L,int i,datatype Item){
     if(i<0||i>L->length||L->length==maxsize)
-        cout<<"err"<<endl;
+        cout<< "err"<< endl;
     else{
         L->length++;
         for(int j = L->length-1;j > i;j--){
@@ -775,7 +753,7 @@ bool GetNext(sequenlist L,datatype Item,datatype &p){
     for(int i = 0 ; i < L->length-1; i++){
         if(L->elem[i] == Item&&i+1<L->length){
             p = L->elem[i+1];
-            cout<<p<<endl;
+            cout<< p<< endl;
             return true;
         }
     }
@@ -784,7 +762,7 @@ bool GetNext(sequenlist L,datatype Item,datatype &p){
 
 datatype GetNode(sequenlist L,int i){
     if(i<0||i>L->length-1){
-        cout<<"err"<<endl;
+        cout<< "err"<< endl;
         return false;
     }else return L->elem[i];
 }
@@ -802,7 +780,7 @@ bool GetPrior(sequenlist L,datatype Item,datatype &p){
     for(int i = 0 ; i < L->length-1; i++){
         if(L->elem[i] == Item&&i-1>=0){
             p = L->elem[i-1];
-            cout<<p<<endl;
+            cout<< p<< endl;
             return true;
         }
     }
@@ -811,9 +789,9 @@ bool GetPrior(sequenlist L,datatype Item,datatype &p){
 
 void PrintList(sequenlist L){
     for(int i = 0;i<L->length;i++){
-        cout<<L->elem[i]<<" ";
+        cout<< L->elem[i]<< " ";
     }
-    cout<<endl;
+    cout<< endl;
 }
 </code></pre>
 <p>由于形参指针没有赋予新值，可以理解为实参的引用！</p>
@@ -1640,7 +1618,7 @@ void PrintList(sequenlist L){
         <div class="col s12 m10 l10 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2021</span>
+                <span id="year">2021-2022</span>
             
             <span id="year">2021</span>
             <a href="/about" target="_blank">午后&花茶</a>
@@ -1649,7 +1627,7 @@ void PrintList(sequenlist L){
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">18.9k</span>&nbsp;字
+                class="white-color">25.5k</span>&nbsp;字
             
             
             

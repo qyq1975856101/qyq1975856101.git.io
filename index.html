@@ -168,17 +168,6 @@
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="/mylove" class="waves-effect waves-light">
-      
-      <i class="fas fa-crown" style="zoom: 0.6;"></i>
-      
-      <span>Mylove</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
     <a href="" class="waves-effect waves-light">
 
       
@@ -350,17 +339,6 @@
 			    <i class="fa-fw fas fa-comments"></i>
 			
 			ArtiTalk
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/mylove" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-crown"></i>
-			
-			Mylove
 		</a>
           
         </li>
@@ -723,6 +701,55 @@ WIDGET = {
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
+                    <a href="/posts/graph.html">
+                        <div class="card-image">
+                            
+                            <img src="https://wuhouhuacha.com/images/graph.png" class="responsive-img" alt="graph">
+                            
+                            <span class="card-title">graph</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                图的定义抽象数据类型ADT Graph{
+    数据对象V:    V是具有相同特性的数据元素的集合，称为顶点集。
+    数据关系R:    R={VR}
+                VR = {&lt;v,w>|v,w∈V且P(v
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-09-08
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/notes/" class="post-category">
+                                    notes
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/data-structure/">
+                            <span class="chip bg-color">data_structure</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
                     <a href="/posts/exercise-questions-stackandqueue.html">
                         <div class="card-image">
                             
@@ -828,12 +855,11 @@ WIDGET = {
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                抽象数据结构
-ADT BinaryTree{
+                                抽象数据结构ADT BinaryTree{
     数据对象D:D是具有相同特性的数据元素的集合。
     数据关系R：
         若D=Φ，则R=Φ，称BinaryTree为空二叉树；
-        若D≠Φ，则R={H}，H是
+        若D≠Φ，则R={H}，H是如
                             
                         </div>
                         <div class="publish-info">
@@ -921,7 +947,7 @@ typedef struct {
                     <a href="/posts/the-application-of-the-stack.html">
                         <div class="card-image">
                             
-                            <img src="https://wuhouhuacha.com/images/Reverse Polish notation.png" class="responsive-img" alt="The application of the stack">
+                            <img src="https://wuhouhuacha.com/images/Reverse_Polish_notation.png" class="responsive-img" alt="The application of the stack">
                             
                             <span class="card-title">The application of the stack</span>
                         </div>
@@ -929,6 +955,17 @@ typedef struct {
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
+                            
+                                括号匹配分析
+
+遇到左括号入栈
+遇到右括号出栈（如果栈为空，则匹配失败）
+判断当前情况（如果出栈左括号和当前右括号是一种类型匹配成功，否则失败）
+循环123步
+如果当前栈为空，则括号序列匹配成功
+
+算法实现
+#define maxSize 
                             
                         </div>
                         <div class="publish-info">
@@ -1261,57 +1298,6 @@ typedef ① ②:给①起个叫②的别名；
                 </div>
             </div>
             
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/posts/sequencelist.html">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="SequenceList">
-                            
-                            <span class="card-title">SequenceList</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                顺序表的定义静态分配存储#define maxsize 1024        //定义最大长度
-#define datatype int        //定义默认数据类型 
-
-typedef struct SquenList{
-    
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-23
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/notes/" class="post-category">
-                                    notes
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/data-structure/">
-                            <span class="chip bg-color">data_structure</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
         </div>
     </article>
 
@@ -1404,7 +1390,7 @@ typedef struct SquenList{
         <div class="col s12 m10 l10 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2021</span>
+                <span id="year">2021-2022</span>
             
             <span id="year">2021</span>
             <a href="/about" target="_blank">午后&花茶</a>
@@ -1413,7 +1399,7 @@ typedef struct SquenList{
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">18.9k</span>&nbsp;字
+                class="white-color">25.5k</span>&nbsp;字
             
             
             

@@ -168,17 +168,6 @@
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="/mylove" class="waves-effect waves-light">
-      
-      <i class="fas fa-crown" style="zoom: 0.6;"></i>
-      
-      <span>Mylove</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
     <a href="" class="waves-effect waves-light">
 
       
@@ -350,17 +339,6 @@
 			    <i class="fa-fw fas fa-comments"></i>
 			
 			ArtiTalk
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/mylove" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-crown"></i>
-			
-			Mylove
 		</a>
           
         </li>
@@ -617,14 +595,14 @@ WIDGET = {
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-05-07
+                    2021-08-28
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    571
+                    734
                 </div>
                 
 
@@ -655,7 +633,7 @@ typedef struct {
 }SString;
 </code></pre>
 <pre class=" language-c++"><code class="language-c++">#define MAXSTRLEN 255    //预定义最大串长为255
-typedef unsigned char SString[MAXSTRLEN+1] //0好单元存放穿的长度
+typedef unsigned char SString[MAXSTRLEN+1] //0号单元存放穿的长度
 </code></pre>
 <h2 id="堆分配存储-动态数组实现"><a href="#堆分配存储-动态数组实现" class="headerlink" title="堆分配存储(动态数组实现)"></a>堆分配存储(动态数组实现)</h2><pre class=" language-c++"><code class="language-c++">typedef struct{
     char *ch;        //按串长分配存储区，Ch指向串的基地址
@@ -675,22 +653,256 @@ S.length = 0;
 <span class="token code keyword">    数据对象:    D = {a_i|a_i∈CharacterSet,i=1,2,...n,n≥0}</span>
 <span class="token code keyword">    数据关系:    R_1 = {&lt;a_{i-1},a_i>|a_{i-1},a_i∈D,i=1,2,...n}</span>
 <span class="token code keyword">    基本操作:</span>
-<span class="token code keyword">        StrAssign(&amp;T,chars);        //chars是字符串常量/生成一个其值等于chars的串T</span>
-<span class="token code keyword">        StrCopy(&amp;T,S);                //串S存在/由串S复制得串T</span>
-<span class="token code keyword">        StrEmpty(S);                //串S存在/若S为空串，则返回TRUE，否则返回FALSE</span>
-<span class="token code keyword">        StrCompare(S,T);            //串S,T存在/若S>T,则返回值>0;若S=T,则返回值=0;若S&lt;T,则返回值&lt;0.</span>
-<span class="token code keyword">        StrLength(S);                //串S存在/返回S的元素个数，称为串的长度</span>
-<span class="token code keyword">        ClearString(&amp;S);            //串S存在/将S清为空串</span>
-<span class="token code keyword">        Concat(&amp;T,S1,S2);            //串S1,S2存在/用T返回由S1和S2联结而成的新串</span>
+<span class="token code keyword">        StrAssign(&amp;T,chars);        //chars是字符串常量,生成一个其值等于chars的串T</span>
+<span class="token code keyword">        StrCopy(&amp;T,S);                //串S存在,由串S复制得串T</span>
+<span class="token code keyword">        StrEmpty(S);                //串S存在,若S为空串，则返回TRUE，否则返回FALSE</span>
+<span class="token code keyword">        StrCompare(S,T);            //串S,T存在,若S>T,则返回值>0;若S=T,则返回值=0;若S&lt;T,则返回值&lt;0.</span>
+<span class="token code keyword">        StrLength(S);                //串S存在,返回S的元素个数，称为串的长度</span>
+<span class="token code keyword">        ClearString(&amp;S);            //串S存在,将S清为空串</span>
+<span class="token code keyword">        Concat(&amp;T,S1,S2);            //串S1,S2存在,用T返回由S1和S2联结而成的新串</span>
 <span class="token code keyword">        SubString(&amp;Sub,S,pos,len);    //串S存在,1&lt;=pos&lt;=StrLength(S)且0&lt;=len&lt;=StrLength(S)-pos+1/用Sub返回串S的第pos个字符起长度为len的子串</span>
-<span class="token code keyword">        Index(S,T,pos);                //串S,T存在,T是非空串,1&lt;=pos&lt;=StrLength(S)/r若主串S存在和串T值相同的子串，则返回它在主串S中第pos个字符之后第一次出现的位置;否则返回0</span>
-<span class="token code keyword">        Replace(&amp;S,T,V);            //串S,T,V存在,T是非空串/用V替换主串S中出现的所有与T相等的不重叠的子串</span>
-<span class="token code keyword">        StrInsert(&amp;S,pos,T);        //串S,T存在/1&lt;=pos&lt;=StrLength(S)+1/在串S的第pos个字符之前插入串T</span>
-<span class="token code keyword">        StrDlete(&amp;S,pos,len);        //串S存在/1&lt;=pos&lt;=StrLength(S)+1/从串S中删除第pos个字符起长度为len的子串</span>
-<span class="token code keyword">        DestoryString(&amp;S);            //串S存在/串S被撤销</span>
+<span class="token code keyword">        Index(S,T,pos);                //串S,T存在,T是非空串,1&lt;=pos&lt;=StrLength(S),r若主串S存在和串T值相同的子串，则返回它在主串S中第pos个字符之后第一次出现的位置;否则返回0</span>
+<span class="token code keyword">        Replace(&amp;S,T,V);            //串S,T,V存在,T是非空串,用V替换主串S中出现的所有与T相等的不重叠的子串</span>
+<span class="token code keyword">        StrInsert(&amp;S,pos,T);        //串S,T存在,1&lt;=pos&lt;=StrLength(S)+1,在串S的第pos个字符之前插入串T</span>
+<span class="token code keyword">        StrDlete(&amp;S,pos,len);        //串S存在,1&lt;=pos&lt;=StrLength(S)+1/从串S中删除第pos个字符起长度为len的子串</span>
+<span class="token code keyword">        DestoryString(&amp;S);            //串S存在,串S被撤销</span>
 }ADT String
 </code></pre>
-<h1 id="队列的实现"><a href="#队列的实现" class="headerlink" title="队列的实现"></a>队列的实现</h1>
+<h1 id="串变长存储的实现"><a href="#串变长存储的实现" class="headerlink" title="串变长存储的实现"></a>串变长存储的实现</h1><pre class=" language-c++"><code class="language-c++">#include <iostream>
+#include <cstdlib>
+
+#define DataType int    //定义串中元素的数据类型
+#define MAXLEN 1024        //定义串中元素的最大个数
+
+using namespace std;
+
+typedef struct{
+    char *ch;        //按串长分配存储区，Ch指向串的基地址
+    int length;        //串的长度
+}HString;
+
+bool InitString(HString &S);            // 串的初始化 
+bool StrAssign(HString &T,char chars[]);//chars是字符串常量,生成一个其值等于chars的串T
+bool StrCopy(HString &T,S);                //串S存在,由串S复制得串T
+bool StrEmpty(HString S);                //串S存在,若S为空串，则返回TRUE，否则返回FALSE
+int StrCompare(HString S,HString T);    //串S,T存在,若S>T,则返回值>0;若S=T,则返回值=0;若S<T,则返回值<0.
+int StrLength(HString S);                //串S存在,返回S的元素个数，称为串的长度
+bool ClearString(HString &S);            //串S存在,将S清为空串
+bool Concat(HString &T,HString S1,HString S2);//串S1,S2存在,用T返回由S1和S2联结而成的新串
+bool SubString(HString &Sub,HString S,int pos,int len);    //串S存在,1<=pos<=StrLength(S)且0<=len<=StrLength(S)-pos+1/用Sub返回串S的第pos个字符起长度为len的子串
+bool Index(HString S,HString T,pos);    //串S,T存在,T是非空串,1<=pos<=StrLength(S),r若主串S存在和串T值相同的子串，则返回它在主串S中第pos个字符之后第一次出现的位置;否则返回0
+bool Replace(HString &S,T,V);            //串S,T,V存在,T是非空串,用V替换主串S中出现的所有与T相等的不重叠的子串
+bool StrInsert(HString &S,pos,T);        //串S,T存在,1<=pos<=StrLength(S)+1,在串S的第pos个字符之前插入串T
+bool StrDlete(HString &S,pos,len);        //串S存在,1<=pos<=StrLength(S)+1/从串S中删除第pos个字符起长度为len的子串
+bool DestoryString(HString &S);            //串S存在,串S被撤销
+
+int main(){
+    HString S;
+    InitString(S);
+    StrAssign(S,"cur input")
+}
+
+// 串的初始化 
+bool InitString(HString &S){
+    S.ch = (char *)malloc(sizeof(char)*MAXLEN);
+    S.length = 0;
+}
+
+//chars是字符串常量,生成一个其值等于chars的串T
+bool StrAssign(HString &T,char chars[]){
+    char *c = chars;
+    int len = 0;
+    if(T.ch){
+        free(T.ch);
+        T.ch = NULL;
+        T.length = 0;
+    }
+    while(*c){
+        ++int;
+        ++c;
+    }
+    if(len == 0){
+        return false;
+    }else{
+        T.ch = (char *)malloc(sizeof(char)*len);
+        if(!T.ch)
+            return 0;
+        c = chars;
+        for(int i = 0;i<len;i++,c++){
+            T.ch[i] = *c;
+        }
+        T.length = len;
+        return true;
+    }
+}
+
+//串S,T存在,若S>T,则返回值>0;若S=T,则返回值=0;若S<T,则返回值<0.
+int StrCompare(HString S,HString T){
+    for(int i = 0;i<S.length&&i<T.length;i++){
+        if(S.ch[i]!=T.ch[i]){
+            return S.ch[i]-T.ch[i];
+        }
+    }
+    return S.length-T.length;
+}
+
+//串S存在,返回S的元素个数，称为串的长度
+int StrLength(HString S){
+    return S.length;
+}
+//串S存在,将S清为空串
+bool ClearString(HString &S){
+    if(S.ch){
+        free(S.ch);
+        S.ch = NULL;
+        S.length = 0;
+    }
+    return true;
+}            
+
+//串S1,S2存在,用T返回由S1和S2联结而成的新串
+bool Concat(HString &T,HString S1,HString S2){
+    if(T.ch){
+        free(T.ch);
+        T.ch = NULL;
+        T.length = 0;
+    }
+    T.ch = (char*)malloc(sizeof(char)*(S1.length+S2.length));
+    if(!T.ch)
+        return false;
+    T.length = S1.length+S2.length;
+    int i,j;
+    for(i = 0;i<S1.length;i++){
+        T.ch[i] = S1.ch[i];
+    }
+    for(j = 0;j<S1.length;j++){
+        T.ch[i+j] = S1.ch[j];
+    }
+    return true;
+}
+//串S存在,1<=pos<StrLength(S)且0<=len<=StrLength(S)-pos/用Sub返回串S的第pos个字符起长度为len的子串
+bool SubString(HString &Sub,HString S,int pos,int len){
+    if(pos < 0||pos >= S.length||len < 0||len > S.length-pos)
+        return 0;
+    if(Sub.ch){
+        free(Sub.ch);
+        Sub.ch=NULL;
+    }
+    if(len == 0){
+        Sub.ch = NULL;
+        Sub.length = 0;
+        return true;
+    }else{
+        Sub.ch = (char*)malloc(sizeof(char)*len);
+        if(!Sub.ch)return false;
+        Sub.length = len;
+        int i = pos;
+        int j = 0;
+        while(i<pos+len){
+            Sub.ch[j] = S.ch[i];
+            i++;
+            j++;
+        }
+        return true;
+    }
+</code></pre>
+<h1 id="串的匹配算法"><a href="#串的匹配算法" class="headerlink" title="串的匹配算法"></a>串的匹配算法</h1><h2 id="简单模式匹配"><a href="#简单模式匹配" class="headerlink" title="简单模式匹配"></a>简单模式匹配</h2><h3 id="算法思想"><a href="#算法思想" class="headerlink" title="算法思想"></a>算法思想</h3><ul>
+<li>主串长度n，模式串长度m</li>
+<li>将主串中所有长度为m的子串依次与模式串对比</li>
+<li>对比失败， ij回溯：i=i-j+2; j=1;</li>
+<li>找到第一个与模式串匹配的子串，并返回子串起始位置</li>
+<li>若所有子串都不匹配，则返回0</li>
+</ul>
+<h3 id="算法实现"><a href="#算法实现" class="headerlink" title="算法实现"></a>算法实现</h3><pre class=" language-c++"><code class="language-c++">int index(Hstring T,HString S){
+    int i=1,j=1;
+    while(i<=T.length&&j<=S.length){
+        if(T.ch[i]==S.ch[j]){
+            i++;
+            j++;
+        }else{
+            i=i-j+2;
+            j=1;
+        }
+    }
+    if(S.length<j){
+        return i-S.length;
+    }
+    else
+        return 0;
+}
+</code></pre>
+<h3 id="算法分析"><a href="#算法分析" class="headerlink" title="算法分析"></a>算法分析</h3><p>最坏的情况，每个子串都要对比m个字符，共n-m+1个子串，复杂度=O（（n-m+1）m）=O（nm）</p>
+<p>最好的情况，每个子串的第一个字符就匹配失败，共n-m+1个子串，复杂度=O（n-m+1）=O（n）</p>
+<h2 id="字符串的前缀、后缀和部分匹配值"><a href="#字符串的前缀、后缀和部分匹配值" class="headerlink" title="字符串的前缀、后缀和部分匹配值"></a>字符串的前缀、后缀和部分匹配值</h2><p>要了解子串的结构，首先要弄清楚几个概念：前缀、后缀和部分匹配值。</p>
+<ul>
+<li><p>前缀指除最后一个字符以外，字符串的所有头部子串；</p>
+</li>
+<li><p>后缀指除第一个字符外，字符串的所有尾部子串；</p>
+</li>
+<li><p>部分匹配值则为字符串的前缀和后缀的最长相等前后缀长度。</p>
+</li>
+<li><p>下面以ababa’为例进行说明：<br>‘a’的前缀和后缀都为空集，最长相等前后缀长度为0。<br>‘ab’的前缀为{a}，后缀为{b}，{a}∩{b}=0，最长相等前后缀长度为0。<br>‘aba’的前缀为{a，ab}，后缀为{a，ba}，{a，ab}∩{a，ba}={a}，最长相等前后缀长度为1。<br>‘abab’的前缀{a，ab，aba}∩后缀{b，ab，bab}={ab}，最长相等前后缀长度为2。<br>‘ababa’的前缀{a，ab，aba，abab}∩后缀{a，ba，aba，baba}={a，aba}，公共元素有两个，最长相等前后缀长度为3。<br>故字符串’ababa’的部分匹配值为00123.<br>部分匹配值后移一位：前面补零，消除最后一位所有的加一就是next[]数组对应的值</p>
+</li>
+</ul>
+<p>next[i]的含义是：在子串的第i个字符与主串发生失配时，则跳到子串的next[i]位置重新与主串当前位置进行比较。</p>
+<p>$next[j]=\begin{cases}0,&amp;j=1\\max\left{k|1&lt;k&lt;j且’P_1…P_{k-1}’=’P_{j-k+1}…P_{j-1}’\right},&amp; 当此集合空时\1,&amp;其他情况\end{cases}$</p>
+<p><img src="../../medias/images/image-20210824233349103.png" alt="image-20210824233349103"><img src="../../medias/images/image-20210824234229246.png" alt="image-20210824234229246"></p>
+<h2 id="KMP算法"><a href="#KMP算法" class="headerlink" title="KMP算法"></a>KMP算法</h2><h3 id="算法思想-1"><a href="#算法思想-1" class="headerlink" title="算法思想"></a>算法思想</h3><ul>
+<li>主串长度n，模式串长度m</li>
+<li>将主串中所有长度为m的子串依次与模式串对比</li>
+<li>对比失败， j回溯：j=next[j];</li>
+<li>找到第一个与模式串匹配的子串，并返回子串起始位置</li>
+<li>若所有子串都不匹配，则返回0</li>
+</ul>
+<h3 id="算法实现-1"><a href="#算法实现-1" class="headerlink" title="算法实现"></a>算法实现</h3><pre class=" language-c++"><code class="language-c++">void get_next(String T,int next[]){
+    int i=1,j=0;
+    next[1]=0;
+    while(i<T.length){
+        if(j == 0||T.ch[i] == T.ch[j]}{
+           ++i;
+           ++j;
+           next[i]=j;        //若p_i=p_j，则next[j+1]=next[j]+1
+       }else 
+          j=next[j];        //否则令j=next[j]，循环继续
+    }
+}
+           
+void get_nextval(String T, int nextval[]){
+    int i=1,j=0;
+    nextval[1]=0;
+    while(i<T.length){
+        if(j==0||T. ch[i]==T. ch[j]){
+            ++i;
+            ++j; 
+            if(T.ch[i] != T. ch[j])
+                nextval[i] = j; 
+            else 
+                nextval[i] = nextval[j];
+        }
+        else j=nextval[j];
+    }
+}
+           
+int index_KMP(Hstring T,HString S){
+    int i=1,j=1;
+    while(i<=T.length&&j<=S.length){
+        if(j==0||T.ch[i]==S.ch[j]){
+            i++;
+            j++;
+        }else{
+            j=next[j];
+        }
+    }
+    if(S.length<j){
+        return i-S.length;
+    }
+    else
+        return 0;
+}
+</code></pre>
+<h3 id="算法分析-1"><a href="#算法分析-1" class="headerlink" title="算法分析"></a>算法分析</h3><p>KMP算法，最坏时间复杂度O（m+n）其中，求next数组时间复杂度O（m）</p>
+<p>模式匹配过程最坏时间复杂度O（n）</p>
+
                 
             </div>
             <hr/>
@@ -1248,7 +1460,7 @@ S.length = 0;
                 <a href="/posts/the-application-of-the-stack.html">
                     <div class="card-image">
                         
-                        <img src="https://wuhouhuacha.com/images/Reverse Polish notation.png" class="responsive-img" alt="The application of the stack">
+                        <img src="https://wuhouhuacha.com/images/Reverse_Polish_notation.png" class="responsive-img" alt="The application of the stack">
                         
                         <span class="card-title">The application of the stack</span>
                     </div>
@@ -1510,7 +1722,7 @@ S.length = 0;
         <div class="col s12 m10 l10 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2021</span>
+                <span id="year">2021-2022</span>
             
             <span id="year">2021</span>
             <a href="/about" target="_blank">午后&花茶</a>
@@ -1519,7 +1731,7 @@ S.length = 0;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">18.9k</span>&nbsp;字
+                class="white-color">25.5k</span>&nbsp;字
             
             
             

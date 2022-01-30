@@ -168,17 +168,6 @@
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="/mylove" class="waves-effect waves-light">
-      
-      <i class="fas fa-crown" style="zoom: 0.6;"></i>
-      
-      <span>Mylove</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
     <a href="" class="waves-effect waves-light">
 
       
@@ -350,17 +339,6 @@
 			    <i class="fa-fw fas fa-comments"></i>
 			
 			ArtiTalk
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/mylove" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-crown"></i>
-			
-			Mylove
 		</a>
           
         </li>
@@ -617,14 +595,14 @@ WIDGET = {
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-08-10
+                    2021-09-09
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.1k
+                    804
                 </div>
                 
 
@@ -678,7 +656,7 @@ typedef struct{
 <span class="token code keyword">        EnQueue(&amp;Q,e);        //插入元素e为新的队尾元素（队列Q已存在）</span>
 <span class="token code keyword">        DeQueue(&amp;Q,&amp;e);        //删除Q的队头元素，并用e返回其值。（队列Q已存在）</span>
 <span class="token code keyword">        QueueTraverse(Q);    //按前后顺序输出队列Q的所有元素值（队列Q已存在）</span>
-}ADT List
+}ADT Queue
 </code></pre>
 <h1 id="队列的实现"><a href="#队列的实现" class="headerlink" title="队列的实现"></a>队列的实现</h1><pre class=" language-c++"><code class="language-c++">#include <iostream>
 #include <cstdlib>
@@ -779,6 +757,106 @@ bool QueueTraverse(SqQueue Q){
     cout<< endl;
 }
 </code></pre>
+<h1 id="循环队列的实现"><a href="#循环队列的实现" class="headerlink" title="循环队列的实现"></a>循环队列的实现</h1><pre class=" language-c++"><code class="language-c++">#include < iostream >
+#include < cstdlib >
+
+#define maxsize 1024
+#define datatype int
+
+using namespace std;
+
+typedef struct node{
+    datatype data[maxsize];
+    int front;
+    int rear;
+}Node,SqQueue;
+
+bool InitQueue(SqQueue &Q);            //构造一个空的队列Q
+bool DestroyQueue(SqQueue &Q);        //销毁队列Q（队列Q已存在）
+bool ClearQueue(SqQueue &Q);        //将Q清为空队列(队列Q已存在)
+bool QueueEmpty(SqQueue Q);            //若Q为空队列，则返回true，否则返回false（队列Q已存在）
+int QueueLength(SqQueue Q);        //返回队列Q中元素个数，即队列的长度（队列Q已存在）
+bool GetHead(SqQueue Q,datatype &e);//用e返回队头元素。（队列Q已存在）
+bool EnQueue(SqQueue &Q,datatype e);//插入元素e为新的队尾元素（队列Q已存在）
+bool DeQueue(SqQueue &Q,datatype &e);//删除Q的队头元素，并用e返回其值。（队列Q已存在）
+bool QueueTraverse(SqQueue Q);      //按前后顺序输出队列Q的所有元素值（队列Q已存在）
+
+int main(){
+    int data;
+    datatype x;
+    SqQueue q;
+    InitQueue(q);
+    cin>>data;
+    while(data !=-1){
+        EnQueue(q,data);
+        cin>>data;
+    }
+    QueueTraverse(q);
+    cout<< QueueLength(q)<< endl;
+    GetHead(q,x);
+    cout<< x<< endl;
+    DeQueue(q,x);
+    cout<< x<< endl;
+    QueueTraverse(q);
+    ClearQueue(q);
+    QueueTraverse(q);
+    return 0;
+}
+
+//构造一个空的队列Q
+bool InitQueue(SqQueue &Q){
+    Q.front = Q.rear =0;
+    return true;
+}
+
+//将Q清为空队列(队列Q已存在)
+bool ClearQueue(SqQueue &Q){
+    Q.front = Q.rear = 0;
+    return true;
+}        
+
+//若Q为空队列，则返回true，否则返回false（队列Q已存在）
+bool QueueEmpty(SqQueue Q){
+    return(Q.front == Q.rear);
+}
+
+//返回队列Q中元素个数，即队列的长度（队列Q已存在）
+int QueueLength(SqQueue Q){
+    return (Q.rear+maxsize-Q.front)%maxsize;
+}
+
+//用e返回队头元素。（队列Q已存在）
+bool GetHead(SqQueue Q,datatype &e){
+    if(QueueEmpty(Q))return false;
+    e = Q.data[Q.front];
+    return true;
+}
+
+//插入元素e为新的队尾元素（队列Q已存在）
+bool EnQueue(SqQueue &Q,datatype e){
+    if((Q.rear+1)%maxsize == Q.front)return false;
+    Q.data[Q.rear] = e;
+    Q.rear=(Q.rear+1)%maxsize;
+    return true;
+}
+
+//删除Q的队头元素，并用e返回其值。（队列Q已存在）
+bool DeQueue(SqQueue &Q,datatype &e){
+    if(QueueEmpty(Q))return false;
+    e = Q.data[Q.front];
+    Q.front=(Q.front+1)%maxsize;
+    return true;
+}
+
+//按前后顺序输出队列Q的所有元素值（队列Q已存在）
+bool QueueTraverse(SqQueue Q){
+    if(QueueEmpty(Q))return false;
+    for(int i = Q.front; (i+1)%maxsize != Q.rear;i=(i+1)%maxsize){
+        cout<< Q.data[i];
+    }
+    cout<< endl;
+}
+</code></pre>
 <p>循环队列是改进的顺序队列</p>
 <p><strong>循环队列</strong>牺牲一个存储单元来<strong>区别队空和队满</strong>！</p>
 <table>
@@ -868,31 +946,30 @@ int main(){
 }
 //构造一个空的队列Q(带头结点)
 bool InitQueue(LinkQueue &Q){
-    Q.front=Q.rear=(LinkNode)malloc(sizeof(LNode));
-    Q.front->next = NULL;
+    Q = (LinkQueue)malloc(sizeof(LinkQueue));
+    Q.front= Q.rear = NULL;
 }
 
 //销毁队列Q（队列Q已存在）
 bool DestroyQueue(LinkQueue &Q){
-    free(Q.front);
-    free(Q.rear);
+    free(Q);
 }
 
 //将Q清为空队列(队列Q已存在)
 bool ClearQueue(LinkQueue &Q){
-    Q.front->next = NULL;
-    Q.rear = Q.front;
+    Q.rear = NULL;
+    Q.front = NULL;
 }
 
 //若Q为空队列，则返回true，否则返回false（队列Q已存在）
 bool QueueEmpty(LinkQueue Q){
-    return (Q.front=Q.rear);
+    return (Q.front == NULL||Q.rear == NULL);
 }
 
 //返回队列Q中元素个数，即队列的长度（队列Q已存在）
 int QueueLength(LinkQueue Q){
     int i = 0;
-    LinkNode temp = Q.front->next;
+    LinkNode temp = Q.front;
     while(temp){
         i++;
         temp = temp->next;
@@ -902,8 +979,8 @@ int QueueLength(LinkQueue Q){
 
 //用e返回队头元素。（队列Q已存在）
 bool GetHead(LinkQueue Q,DataType &e){
-    if(Q.front == Q.rear) return false;
-    e = Q.front->next->data;
+    if(Q.front == NULL) return false;
+    e = Q.front->data;
     return true;
 }
 
@@ -913,27 +990,31 @@ bool EnQueue(LinkQueue &Q,DataType e){
     if(!temp)return false;
     temp->data = e;
     temp->next = NULL;
-    Q.rear->next = temp;
-    Q.rear = temp;
+    if(QueueEmpty(Q)){
+        Q.front = Q.rear = temp;
+    }else{
+        Q.rear->next = temp;
+        Q.rear = temp;
+    }
     return true;
 }
 
 //删除Q的队头元素，并用e返回其值。（队列Q已存在）
 bool DeQueue(LinkQueue &Q,DataType &e){
-    if(Q.front == Q.rear)return false;
-    LinkNode temp = Q.front->next;
+    if(QueueEmpty(Q))return false;
+    LinkNode temp = Q.front;
     e = temp->data;
-    Q.front->next = temp->next;
+    Q.front = temp->next;
     if(temp == Q.rear)
-        Q.rear = Q.front;
+        Q.rear = Q.front = NULL;
     free(temp);
     return true;
 }
 
 //按前后顺序输出队列Q的所有元素值（队列Q已存在）
 bool QueueTraverse(LinkQueue Q){
-    if(Q.front == Q.rear) return false;
-    LinkNode temp = Q.front->next;
+    if(QueueEmpty(Q)) return false;
+    LinkNode temp = Q.front;
     while(temp){
         cout<<temp->data;
         temp = temp->next;
@@ -941,114 +1022,6 @@ bool QueueTraverse(LinkQueue Q){
     cout<<endl;
     return true;
 }
-
-// //(不带头结点)
-// //构造一个空的队列Q
-// bool InitQueue(LinkQueue &Q){
-//     Q = (LinkQueue )malloc(sizeof(LinkQueue));
-//     Q->front= NULL;
-//     Q->rear= NULL;
-// }
-
-// //销毁队列Q（队列Q已存在）
-// bool DestroyQueue(LinkQueue &Q){
-//     free(Q);
-// }
-
-// //将Q清为空队列(队列Q已存在)
-// bool ClearQueue(LinkQueue &Q){
-//     Q->front = NULL;
-//     Q->rear = NULL;
-// }
-
-// //若Q为空队列，则返回true，否则返回false（队列Q已存在）
-// bool QueueEmpty(LinkQueue Q){
-//     return (Q->front==NULL);
-// }
-
-// //返回队列Q中元素个数，即队列的长度（队列Q已存在）
-// int QueueLength(LinkQueue Q){
-//     LinkNode temp = Q->front;
-//     int i = 0;
-//     while(temp){
-//         temp = temp->next;
-//         i++;
-//     }
-//     return i;
-// }
-
-// //用e返回队头元素。（队列Q已存在）
-// bool GetHead(LinkQueue Q,DataType &e){
-//     if(!Q->front)return false;
-//     e = Q->front->data;
-//     return true;
-// }
-
-// //插入元素e为新的队尾元素（队列Q已存在）
-// bool EnQueue(LinkQueue &Q,DataType e){
-//     LinkNode temp = (LinkNode)malloc(sizeof(LNode));
-//     if(!temp)return false;
-//     temp->data = e;
-//     temp->next = NULL;
-//     if(!Q->front){
-//         Q->front =temp;
-//         Q->rear = temp;
-//     }else{
-//         Q->rear->next = temp;
-//         Q->rear = temp; 
-//     }
-//     return true;
-// }
-
-// //删除Q的队头元素，并用e返回其值。（队列Q已存在）
-// bool DeQueue(LinkQueue &Q,DataType &e){
-//     if(!Q->front)return false;
-//     LinkNode temp = Q->front;
-//     e = temp->data;
-//     Q->front = temp->next;
-//     if(Q->rear == temp){
-//         Q->rear=Q->front=NULL;
-//     }
-//     free(temp);
-//     return true;
-// }
-
-// //按前后顺序输出队列Q的所有元素值（队列Q已存在）
-// bool QueueTraverse(LinkQueue Q){
-//     LinkNode temp = Q->front;
-//     while(temp){
-//         cout<< temp->data;
-//         temp = temp->next;
-//     }
-//     cout<< endl;
-//     return true;
-// }
-</code></pre>
-<pre class=" language-flow"><code class="language-flow">st=>start: 开始
-e=>end: 结束
-cond0=>condition: 还有未处理的括号？
-cond1=>condition: a是左括号？
-cond2=>condition: 栈空？
-cond3=>condition: b与a匹配？
-cond4=>condition: 栈空？
-op1=>operation: 扫描下一个括号a
-op2=>operation: 匹配成功
-op3=>operation: a压入栈顶
-op4=>operation: 弹出栈顶元素b
-op5=>operation: 匹配失败
-
-
-st->cond0
-cond0(yes,right)->op1->cond1
-cond1(yes,right)->op3->cond0
-cond0(no)->cond4
-cond4(yes,right)->op2->e
-cond4(no)->op5
-cond1(no)->cond2
-cond2(yes,right)->op5->e
-cond2(no)->op4->cond3
-cond3(yes,right)->cond0
-cond3(no)->op5
 </code></pre>
 
                 
@@ -1560,7 +1533,7 @@ cond3(no)->op5
                 <a href="/posts/the-application-of-the-stack.html">
                     <div class="card-image">
                         
-                        <img src="https://wuhouhuacha.com/images/Reverse Polish notation.png" class="responsive-img" alt="The application of the stack">
+                        <img src="https://wuhouhuacha.com/images/Reverse_Polish_notation.png" class="responsive-img" alt="The application of the stack">
                         
                         <span class="card-title">The application of the stack</span>
                     </div>
@@ -1870,7 +1843,7 @@ cond3(no)->op5
         <div class="col s12 m10 l10 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2021</span>
+                <span id="year">2021-2022</span>
             
             <span id="year">2021</span>
             <a href="/about" target="_blank">午后&花茶</a>
@@ -1879,7 +1852,7 @@ cond3(no)->op5
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">18.9k</span>&nbsp;字
+                class="white-color">25.5k</span>&nbsp;字
             
             
             

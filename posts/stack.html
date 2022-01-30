@@ -168,17 +168,6 @@
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="/mylove" class="waves-effect waves-light">
-      
-      <i class="fas fa-crown" style="zoom: 0.6;"></i>
-      
-      <span>Mylove</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
     <a href="" class="waves-effect waves-light">
 
       
@@ -350,17 +339,6 @@
 			    <i class="fa-fw fas fa-comments"></i>
 			
 			ArtiTalk
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/mylove" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-crown"></i>
-			
-			Mylove
 		</a>
           
         </li>
@@ -617,7 +595,7 @@ WIDGET = {
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-08-10
+                    2021-09-09
                 </div>
                 
 
@@ -682,7 +660,7 @@ typedef struct{
 <span class="token code keyword">        Push(&amp;S,e);//插入元素e为新的栈顶元素（栈S已存在）</span>
 <span class="token code keyword">        Pop(&amp;S,&amp;e);//删除S的栈顶元素，并用e返回其值。（栈S已存在）</span>
 <span class="token code keyword">        PrintStack(S);//按前后顺序输出栈S的所有元素值（栈S已存在）</span>
-}ADT List
+}ADT Stack
 </code></pre>
 <h1 id="顺序栈的实现"><a href="#顺序栈的实现" class="headerlink" title="顺序栈的实现"></a>顺序栈的实现</h1><pre class=" language-c++"><code class="language-c++">#include <iostream>
 #include <cstdlib>
@@ -719,13 +697,13 @@ int main(){
     Push(S,7);
     PrintStack(S);
     GetTop(S,e);
-    cout<< e<< endl;
+    cout<<  e<<  endl;
     Pop(S,e);
-    cout<< e<< endl;
+    cout<<  e<<  endl;
     PrintStack(S);
     ClearStack(S);
-    cout<< StackLength(S)<< endl;
-    cout<< StackEmpty(S)<< endl;
+    cout<<  StackLength(S)<<  endl;
+    cout<<  StackEmpty(S)<<  endl;
 }
 
 // 栈的初始化 
@@ -774,10 +752,10 @@ bool Pop(SequenceStack &S,DataType &e){
 void PrintStack(SequenceStack S){
     int i = S.top;
     while(i>-1){
-        cout<< S.elem[i];
+        cout<<  S.elem[i];
         i--;
     }
-    cout<< endl;
+    cout<<  endl;
 }
 </code></pre>
 <h1 id="链栈实现"><a href="#链栈实现" class="headerlink" title="链栈实现"></a>链栈实现</h1><pre class=" language-c++"><code class="language-c++">#include <iostream>
@@ -804,8 +782,8 @@ void PrintStack(LinkStack S);//按前后顺序输出线性表L的所有元素值
 int main(){
     LinkStack S;
     InitStack(S);
-    cout<<InitStack(S)<<endl;
-    cout<<StackEmpty(S)<<endl;
+    cout<< InitStack(S)<< endl;
+    cout<< StackEmpty(S)<< endl;
     int n;
     cin>>n;
     while(n != -1){
@@ -814,10 +792,10 @@ int main(){
     }
     PrintStack(S);
     GetTop(S,n);
-    cout<<n<<endl;
+    cout<< n<< endl;
     Pop(S,n);
-    cout<<n<<endl;
-    cout<<StackLength(S)<<endl;
+    cout<< n<< endl;
+    cout<< StackLength(S)<< endl;
     PrintStack(S);
     return 0;
 }
@@ -885,10 +863,10 @@ bool Pop(LinkStack &S,datatype &e){
 void PrintStack(LinkStack S){
     Node * temp = S->next;
     while(temp){
-        cout<< temp->elem;
+        cout<<  temp->elem;
         temp = temp->next;
     }
-    cout<< endl;
+    cout<<  endl;
 }
 </code></pre>
 
@@ -1712,7 +1690,7 @@ void PrintStack(LinkStack S){
         <div class="col s12 m10 l10 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2021</span>
+                <span id="year">2021-2022</span>
             
             <span id="year">2021</span>
             <a href="/about" target="_blank">午后&花茶</a>
@@ -1721,7 +1699,7 @@ void PrintStack(LinkStack S){
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">18.9k</span>&nbsp;字
+                class="white-color">25.5k</span>&nbsp;字
             
             
             

@@ -168,17 +168,6 @@
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="/mylove" class="waves-effect waves-light">
-      
-      <i class="fas fa-crown" style="zoom: 0.6;"></i>
-      
-      <span>Mylove</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
     <a href="" class="waves-effect waves-light">
 
       
@@ -350,17 +339,6 @@
 			    <i class="fa-fw fas fa-comments"></i>
 			
 			ArtiTalk
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/mylove" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-crown"></i>
-			
-			Mylove
 		</a>
           
         </li>
@@ -617,7 +595,7 @@ WIDGET = {
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-07-31
+                    2021-09-02
                 </div>
                 
 
@@ -678,7 +656,7 @@ k = j; // k 和 i 的值都变成了 6;
 ... 
 int n = 0; 
 Func1(n); 
-cout << "n = " << n << endl; // n = 0 
+cout <<  "n = " <<  n <<  endl; // n = 0 
 </code></pre>
 <h2 id="指针传递"><a href="#指针传递" class="headerlink" title="指针传递"></a>指针传递</h2><p>将指针作为函数参数，可以看作是将指针所指变量的<strong>地址</strong>传入函数，形参指针指向该地址，<strong>即两个指针指向同一地址</strong>；如果在函数中对这个地址中的元素进行改变，传入指针所指变量的数据就会确实的发生改变。</p>
 <p>由于 Func2 函数体内的 x 是指向外部变量 n 的指针，* x表示取x中存储的地址的里面的值，即指针所指变量的值；改变该指针的内容将导致 n 的值改变，所以 n 的值成为 10。</p>
@@ -689,7 +667,7 @@ cout << "n = " << n << endl; // n = 0
 ...
 int n = 0; 
 Func2(&n); 
-cout << "n = " << n << endl; // n = 10 
+cout <<  "n = " <<  n <<  endl; // n = 10 
 </code></pre>
 <p>但是如果在函数中改变的是指针指向的地址，则对传入的指针变量不会产生影响。</p>
 <pre class=" language-c++"><code class="language-c++">int a = 10;        //全局变量
@@ -701,7 +679,7 @@ void Func3(int *x)
 int n = 0;
 int *m = &n
 Func3(m); 
-cout << "n = " << *m << endl; // n = 0 
+cout <<  "n = " <<  *m <<  endl; // n = 0 
 </code></pre>
 <p>改变指针变量指向的地址，相当于使指针x从指向实参n变成指向全局变量a，而形参值的改变不会影响实参的值，所以传入指针所指地址不会发生改变。</p>
 <p>如果想要改变指针指向的地址，就需要在函数中传递指针的指针。</p>
@@ -714,7 +692,7 @@ void Func3(int **x)
 int n = 0;
 int *m = &n
 Func3(&m); 
-cout << "n = "<<n<< "*m = " << *m << endl; // n = 0 *m = 10
+cout <<  "n = "<< n<<  "*m = " <<  *m <<  endl; // n = 0 *m = 10
 </code></pre>
 <h2 id="引用传递"><a href="#引用传递" class="headerlink" title="引用传递"></a>引用传递</h2><p>由于 Func3 函数体内的 x 是外部变量 n 的引用，x 和 n 是同一个东西，<strong>即一个地址两个名字</strong>；改变 x 等于改变 n，所以 n 的值成为 10。</p>
 <pre class=" language-c++"><code class="language-c++">void Func3(int &x) 
@@ -724,7 +702,7 @@ cout << "n = "<<n<< "*m = " << *m << endl; // n = 0 *m = 10
 ... 
 int n = 0; 
 Func3(n); 
-cout << "n = " << n << endl; // n = 10
+cout <<  "n = " <<  n <<  endl; // n = 10
 </code></pre>
 <p>有了引用之后，改变指针指向的地址就可以通过指针的引用来实现。</p>
 <pre class=" language-c++"><code class="language-c++">int a = 10;        //全局变量
@@ -736,7 +714,7 @@ void Func3(int *&x)
 int n = 0;
 int *m = &n
 Func3(m); 
-cout << "n = "<<n<< "*m = " << *m << endl; // n = 0 *m = 10
+cout <<  "n = "<< n<<  "*m = " <<  *m <<  endl; // n = 0 *m = 10
 </code></pre>
 <p>对比上述三个示例程序，会发现”引用传递”的性质像”指针传递”，而书写方式像”值传递”。</p>
 <p>实际上”引用”可以做的任何事情”指针”也都能够做，为什么还要”引用”这东西？</p>
@@ -1595,7 +1573,7 @@ cout << "n = "<<n<< "*m = " << *m << endl; // n = 0 *m = 10
         <div class="col s12 m10 l10 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2021</span>
+                <span id="year">2021-2022</span>
             
             <span id="year">2021</span>
             <a href="/about" target="_blank">午后&花茶</a>
@@ -1604,7 +1582,7 @@ cout << "n = "<<n<< "*m = " << *m << endl; // n = 0 *m = 10
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">18.9k</span>&nbsp;字
+                class="white-color">25.5k</span>&nbsp;字
             
             
             

@@ -168,17 +168,6 @@
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="/mylove" class="waves-effect waves-light">
-      
-      <i class="fas fa-crown" style="zoom: 0.6;"></i>
-      
-      <span>Mylove</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
     <a href="" class="waves-effect waves-light">
 
       
@@ -356,17 +345,6 @@
         
         <li class="m-nav-item">
 	  
-		<a href="/mylove" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-crown"></i>
-			
-			Mylove
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
 		<a href="javascript:;">
 			
 				<i class="fa-fw fas fa-list"></i>
@@ -464,7 +442,7 @@ WIDGET = {
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://wuhouhuacha.com/images/Reverse Polish notation.png')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://wuhouhuacha.com/images/Reverse_Polish_notation.png')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -617,14 +595,14 @@ WIDGET = {
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-05-06
+                    2021-08-20
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    0
+                    964
                 </div>
                 
 
@@ -646,7 +624,238 @@ WIDGET = {
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h1 id="括号匹配"><a href="#括号匹配" class="headerlink" title="括号匹配"></a>括号匹配</h1><p>分析</p>
+<ol>
+<li>遇到左括号入栈</li>
+<li>遇到右括号出栈（如果栈为空，则匹配失败）</li>
+<li>判断当前情况（如果出栈左括号和当前右括号是一种类型匹配成功，否则失败）</li>
+<li>循环123步</li>
+<li>如果当前栈为空，则括号序列匹配成功</li>
+</ol>
+<p>算法实现</p>
+<pre class=" language-c++"><code class="language-c++">#define maxSize 100            //设置栈长度的最大值
+
+typedef struct{
+    char data[maxSize];
+    int top;
+}SequenceStack;
+
+void InitStack(SequenceStack &S);            //初始化
+bool IsEmpty(SequenceStack S);                //判空
+void pop(SequenceStack &S,char &topElem);    //取栈顶元素
+void push(SequenceStack &S,char elem);        //入栈        
+
+
+bool bracketCheck(char Str[],int length){
+     SequenceStack S;
+     InitStack(S);
+     for(int i = 0;i < length;i++){
+         if(Str[i] == '('||Str[i] == '['||Str[i] == '{'){
+             push(S,Str[i]);
+         }else{
+             if(IsEmpty(S))
+                 return false;
+             char topElem;
+             pop(S,topElem);
+             if(Str[i] == ')'&&topElem != '(')
+                 return false;
+             if(Str[i] == ']'&&topElem != '[')
+                 return false;
+             if(Str[i] == '}'&&topElem != '{')
+                 return false;
+         }      
+     }
+    return IsEmpty(S);
+ }
+</code></pre>
+<h1 id="后缀表达式求值"><a href="#后缀表达式求值" class="headerlink" title="后缀表达式求值"></a>后缀表达式求值</h1><p>【例3-2】编写一个函数，求后缀式的数值，其中后缀式存于一个字符数组exp中，exp中最后一个字符为“\0”，作为结束符，并且假设后缀式中的数字都只有一位。本题中所出现的除法运算，皆为整除运算，如2/3结果为0、3/2结果为1。</p>
+<p>算法分析</p>
+<ul>
+<li>①从左往右扫描下一个元素，直到处理完所有元素</li>
+<li>②若扫描到操作数则压入栈，并回到①；否则执行③</li>
+<li>③若扫描到运算符，则弹出两个栈顶元素，执行相应运算，运算结果压回栈顶，回到①<br>注意：先出栈的是“右操作数”</li>
+</ul>
+<p>算法实现</p>
+<pre class=" language-c++"><code class="language-c++">int count(int a,char op,int b){
+    if(op == "-")
+        return a-b;
+    if(op == "+")
+        return a+b;
+    if(op == "*")
+        return a*b;
+    if(op == "/"){
+        if(b == 0)
+            cout<< err<< endl;
+        return 0;
+    }else{
+        return a-b;   
+    }
+}
+int com(char exp[]){
+    int stack[maxsize];
+    int top = -1,a,b,d;
+    char op;
+    for(int i=0;exp[i]!='\0';i++){
+        if(exp[i]>='0'&&exp[i]<='9')
+            stack[++top] = exp[i]-'0';
+        else{
+            b = stack[top--]-'0';
+            a = stack[top--]-'0';
+            d = count(a,exp[i],b);
+            stack[++top] = d;
+        }
+    }
+    return stack[top];
+}
+</code></pre>
+<h1 id="循环链表表示队列"><a href="#循环链表表示队列" class="headerlink" title="循环链表表示队列"></a>循环链表表示队列</h1><ul>
+<li><p>假设以带头结点的循环链表表示队列，并且只设一个指针指向队尾结点，但不设头指针，请写出相应的入队列和出队列算法。</p>
+<pre class=" language-c++"><code class="language-c++">void enqueue(LinkLsit &r,elemtype x){
+    LNode *temp = (LNode*)malloc(sizeof(LNode));
+    if(!temp)return;
+    temp->data = x;
+    temp->next = r->next;
+    r->next = temp;
+    r = temp;
+}
+void dequeue(LinkLsit &r,elemtype &x){
+    LNode *temp;
+    if(r->next == r)return;
+    if(r->next->next == r){
+        temp = r;
+        r = r->next;
+        x = temp->data;
+        r->next = r;
+        free(temp);
+    }else{
+        temp = r->next->next;
+        r->next->next = temp->next;
+        x = temp->data;
+        free(temp);
+    }
+}
+</code></pre>
+</li>
+<li><p>如果允许在循环队列的两端都可以进行插入和删除操作，要求：</p>
+<p>1）写出循环队列的类型定义。</p>
+<pre class=" language-c++"><code class="language-c++">#define maxsize 10            //设置队列长度的最大值
+typedef struct queue{
+    int elem[maxsize];
+    int rear,front;
+    int length;
+}queue;
+</code></pre>
+<p>2）分别写出从<u>队尾删除</u>和从<u>队头插入</u>的算法。</p>
+<pre class=" language-c++"><code class="language-c++">void enHeadQueue(queue &q,elemtype x){
+    if(q.length == maxsize)return;
+    q.elem[(q.front+maxsize-1)%maxsize] = x;
+    q.front = (q.front+maxsize-1)%maxsize;
+    q.length ++;
+}
+void deRearQueue(queue &q,elemtype &x){
+    if(q.length == 0)return;
+    x = q.elem[q.rear];
+    q.rear = (q.rear+maxsize-1)%maxsize;
+}
+</code></pre>
+</li>
+<li><p>设计一个循环队列，用front和rear分别作为队头和队尾指针，另外用一个标志tag表示队列是空还是不空，约定当tag为0时队空，当tag为1时队不空，这样就可以用front==rear作为队满的条件。要求，设计队列的结构和相关基本运算算法（队列元素为int型）。</p>
+<pre class=" language-c++"><code class="language-c++">#define maxsize 10            //设置队列长度的最大值
+typedef struct queue{
+    int elem[maxsize];
+    int rear,front;
+    int tag;
+}queue;
+void init(queue &q){
+    q.rear=q.front=0;
+    tag=0;
+}
+bool isEmpty(queue q){
+    if(q.rear==q.front&&tag==0)
+        return true;
+    return false;
+}
+bool isFull(queue q){
+    if(q.rear==q.front&&tag==1)
+        return true;
+    return false;
+}
+bool EnQueue(queue &q,int e){        //插入元素e为新的队尾元素（队列Q已存在）
+    if(isFull(q)){
+        return false;
+    }else{
+        q.elem[(q.rear+1)%maxsize] = e;
+        q.rear=(q.rear+1)%maxsize;
+        tag = 1;
+        return true;
+    }
+}
+bool DeQueue(queue &q,int &e){        //删除Q的队头元素，并用e返回其值。（队列Q已存在）
+    if(isEmpty(q))return false;
+    e = q.elem[(q.front-1+maxsize)%maxsize];
+    q.front=(q.front-1+maxsize)%maxsize
+    tag = 0;
+    return true;
+}
+</code></pre>
+</li>
+<li><p>编写一个算法，将一个非负的十进制整数N转换为一个二进制数。</p>
+<pre class=" language-c++"><code class="language-c++">int stack[maxsize];
+int top = -1;
+void translate(int a,int stack[],int top){
+    int i;
+    i = a;
+    while(i){
+        stack[++top] = i%2;
+        i = i/2;
+    }
+    int result = 0
+    while(top!=-1){
+        int a = stack[top--];
+        result = result*10+a;
+    }
+    cout<< result<<endl;
+}
+</code></pre>
+</li>
+<li><p>试编写一个算法，检查一个程序中的花括号、方括号和圆括号是否配对，若全部配对，则返回1，否则返回0。对于程序中出现的一对单引号或双引号内的字符不进行括号配对检查。39为单引号的ASCll值，34为双引号的ASCII值，单引号和双引号如果出现则必成对出现。<br>假设stack是已经定义的顺序栈结构体。可以直接调用的元素进栈/出栈、取栈顶元素、判断栈空的函数定义如下：</p>
+<pre class=" language-c++"><code class="language-c++">void push(stack &S,char ch);
+void pop(stack &S,char &ch);
+void getTop(stack S,char &ch);
+int isEmpty(stack S);    //若栈s空，则返回1，否则返回0
+</code></pre>
+<pre class=" language-c++"><code class="language-c++">int check(char str[]){
+    stack  *S;
+    for(int i = 0;str[i]!='\0';i++){
+        if(str[i]=='('||str[i]=='['||str[i]=='{'||str[i]==39||str[i]==34){
+            push(S,str[i])
+        }
+        if(IsEmpty(S))
+            return false;
+        char top =  getTop(S,top);
+        if(top =='('&&str[i]==')'||top =='['&&str[i]==']'||top =='{'&&str[i]=='}'||top = str[i])
+            pop(S,top);
+    }
+    if(isEmpty(S))return 1;
+    else return 0;
+}
+</code></pre>
+<h1 id="递归与非递归"><a href="#递归与非递归" class="headerlink" title="递归与非递归"></a>递归与非递归</h1><p>求解二次方根$\sqrt A$的迭代函数定义如下：<img src="C:\Users\我有一个龙宝\AppData\Roaming\Typora\typora-user-images\image-20210820233712396.png" alt="image-20210820233712396">式中，p是A的近似二次方根；e是结果允许误差。试写出相应的递归算法和非递归算法（假设取绝对值函数fabs（）可以直接调用)。</p>
+<pre class=" language-c++"><code class="language-c++">int sqrt(int A,int p,int e){    //递归
+    if(fabs(p*p-A)<e) return p;
+    return sqrt(A,(p+A/p)/2,e);
+}
+
+int sqrt(int A,int p,int e){    //非递归
+    while(fabs(p*p-A) >=e){
+        p = (p+A/p)/2;
+    }
+    return p;
+}
+</code></pre>
+</li>
+</ul>
+
                 
             </div>
             <hr/>
@@ -1466,7 +1675,7 @@ WIDGET = {
         <div class="col s12 m10 l10 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2021</span>
+                <span id="year">2021-2022</span>
             
             <span id="year">2021</span>
             <a href="/about" target="_blank">午后&花茶</a>
@@ -1475,7 +1684,7 @@ WIDGET = {
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">18.9k</span>&nbsp;字
+                class="white-color">25.5k</span>&nbsp;字
             
             
             
