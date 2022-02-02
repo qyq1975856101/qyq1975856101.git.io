@@ -55,12 +55,12 @@ var renderer;
 var mouseX = 0;
 var mouseY = 0;
 
-var windowHalfX = window.innerWidth / 2-900;
+var windowHalfX = window.innerWidth / 2;
 var windowHalfY = window.innerHeight / 2;
 
 var particles = []; 
 var particleImage = new Image();//THREE.ImageUtils.loadTexture( "img/ParticleSmoke.png" );
-particleImage.src = 'images/ParticleSmoke.png'; 
+particleImage.src = '/medias/images/ParticleSmoke.png'; 
 
 
 
