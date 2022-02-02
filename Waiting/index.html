@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>Waiting for You</title>
+<link type="text/css" rel="stylesheet" href="/css/snow.css">
+<link type="text/css" rel="stylesheet" href="/css/iconfont.css">
+<link rel="icon" href="#icon-xianxingchun" type="image/x-icon" />
+<link rel="shortcut icon" href="#icon-xianxingchun" type="image/x-icon" />
+<script type="text/javascript" src="/js/ThreeCanvas.js"></script>
+<script type="text/javascript" src="/js/Snow.js"></script>
+</head>
+<body onLoad="init()">
+<audio autoplay="autopaly">
+	<source src="花海.mp3" type="audio/mp3" />
+</audio>  
+<div id="main">
+	<div id="error"> 本页面采用HTML5编辑，目前您的浏览器无法显示，请换成谷歌(Chrome)或者火狐(Firefox)浏览器，或者其他游览器的最新版本。
+	</div>
+	 <div id="wrap">
+<div class="say">
+	<span class="text1"></span>	
+ </div>	
+</div>
+
+
+<script>
+	// <!-- 获取.text标签 -->
+ const text = document.querySelector('.text1');
+//   <!-- 定义数组，里面放上文本 -->
+ const txt  =["你打算什么时候"," ","去见那个"," ","你超级超级想见的人"]; 
+ var result ="";
+//  <!-- 定义当前要显示的字符串的第几个字符 -->
+ var index=0;
+//  <!-- 定义文本数组的下标 -->
+ var xiaBiao= 0;
+//  <!-- 定义huan，拿来判断是要实现打字还是删除字效果，初始为真 -->
+ var huan = true;
+// <!-- 定义一个定时器，200毫秒执行一次 -->
+ setInterval(function(){
+	 if(result!="你打算什么时候 去见那个 你超级超级想见的人"){
+		 result = result + txt[xiaBiao].slice(index,++index);
+		text.innerHTML = result;
+		if(index==txt[xiaBiao].length){
+			index=0;
+			xiaBiao++;
+	 }
+		
+		}
+ },200)
+
+</script>
+
+<div style="text-align:center;margin:0 0  62px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+	<p id="p">
+		<svg class="icon icon-back" aria-hidden="true">;
+			<use xlink:href="#icon-xianxingbianpao"></use>
+		</svg>
+		适用浏览器：360、FireFox、Chrome、Safari、Opera、傲游、搜狗、世界之窗. 不支持IE8及以下浏览器
+		<svg class="icon icon-back" aria-hidden="true">;
+			<use xlink:href="#icon-xianxingbianpao"></use>
+		</svg>
+	</p>
+	<p id="p">
+		Copyright ©&nbsp;&nbsp;QYQ @ <a href="http://wuhouhuacha.com/">www.wuhouhuahca.com</a>&nbsp;版权所有<a href="http://beian.miit.gov.cn/">;蜀ICP备2021003481号</a>
+	</p>
+	
+</div>
+</body>
+</html>
