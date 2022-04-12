@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>说说失效处理办法</title>
+      <link href="posts/56722.html"/>
+      <url>posts/56722.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="说说失效恢复步骤"><a href="#说说失效恢复步骤" class="headerlink" title="说说失效恢复步骤"></a>说说失效恢复步骤</h1><ol><li>打开LeanCloud国际版官网:[<a href="https://console.leancloud.app/]%EF%BC%9B">https://console.leancloud.app/]；</a></li><li>账号密码登录；</li><li>检查原因及操作步骤<ol><li>存储器服务数据已归档（30天无api请求，应用归档后，存储以及依赖存储的服务不可用）</li><li>重新 激活</li></ol></li></ol>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>graph</title>
       <link href="posts/graph.html"/>
       <url>posts/graph.html</url>
